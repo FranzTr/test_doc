@@ -1,0 +1,2361 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="SURF-NEMO platform documentation">
+      
+      
+        <meta name="author" content="SURF Team">
+      
+      
+        <link rel="canonical" href="https://franztr.github.io/test_doc/1.0/ch3_user-configuration-file-preprocessing-sections/">
+      
+      
+        <link rel="prev" href="../ch2_work-flow-of-the-SURF-NEMO-platform/">
+      
+      
+        <link rel="next" href="../ch4_user-configuration-file-postprocessing-sections/">
+      
+      
+      <link rel="icon" href="../assets/img/surflogo_small.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.7">
+    
+    
+      
+        <title>User Configuration File - Preprocessing Sections - SURF-NEMO USER GUIDE</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.f2e4d321.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/css/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#user-configuration-file-preprocessing-sections" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="SURF-NEMO USER GUIDE" class="md-header__button md-logo" aria-label="SURF-NEMO USER GUIDE" data-md-component="logo">
+      
+  <img src="../assets/img/surflogo_small.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SURF-NEMO USER GUIDE
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              User Configuration File - Preprocessing Sections
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/FranzTr/test_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    FranzTr/mkdocs-surf
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="SURF-NEMO USER GUIDE" class="md-nav__button md-logo" aria-label="SURF-NEMO USER GUIDE" data-md-component="logo">
+      
+  <img src="../assets/img/surflogo_small.png" alt="logo">
+
+    </a>
+    SURF-NEMO USER GUIDE
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/FranzTr/test_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    FranzTr/mkdocs-surf
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Welcome
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch1_introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch2_work-flow-of-the-SURF-NEMO-platform/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Workflow of the SURF-NEMO platform
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    User Configuration File - Preprocessing Sections
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    User Configuration File - Preprocessing Sections
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-file-and-json-object-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration file and JSON Object Structure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#genearal-input-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Genearal Input parameters
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Genearal Input parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#section-set_surf" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section set_surf
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-set_lrun" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section set_lrun
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#input-parameters-for-spatial-grid-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Input parameters for spatial grid generation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Input parameters for spatial grid generation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#section-set_xygrid" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section set_xyGrid
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-set_zgrid" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section set_zGrid
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#input-parameters-for-date-and-time-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Input parameters for date and time simulation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Input parameters for date and time simulation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#section-set_datetime" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section set_dateTime
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#input-parameters-for-surface-and-lateral-boundary-conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Input parameters for surface and lateral boundary conditions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Input parameters for surface and lateral boundary conditions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#section-set_sbc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section set_sbc
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-set_obc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section set_obc
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-set_tide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section set_tide
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#input-parameters-for-physical-parametrization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Input parameters for physical parametrization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Input parameters for physical parametrization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#section-set_eos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section set_eos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-set_botfric" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section set_botFric
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-set_xyturbtracers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section set_xyturbTracers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-set_xyturbmomentum" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section set_xyturbMomentum
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-set_zturb" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section set_zturb
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#input-parameters-for-downloading-input-datasets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Input parameters for downloading input datasets
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Input parameters for downloading input datasets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#section-set_datadownlcoast_urlname" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section set_dataDownlCoast_urlName
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-set_datadownlcoast_filename" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section set_dataDownlCoast_fileName
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-set_datadownlbat_urlname" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section set_dataDownlBat_urlName
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-set_datadownlbat_filename" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section set_dataDownlBat_fileName
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-set_datadownlbat_varname" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section set_dataDownlBat_varName
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-set_datadownlatmmesh_urlname" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section set_dataDownlAtmMesh_urlName
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-set_datadownlatmmesh_filename" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section set_dataDownlAtmMesh_fileName
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-set_datadownlatmmesh_varname" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section set_dataDownlAtmMesh_varName
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch4_user-configuration-file-postprocessing-sections/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    User Configuration File - Postprocessing Sections
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch5_input-output-model-datasets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Input/Output Model Datasets
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch6_quick-start-guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started with SURF-NEMO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    APPENDIX
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            APPENDIX
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appA_reference-configuration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reference Configuration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appB_scratch-partition-and-its-directory-structures/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scratch Partition and its directory structures
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appC_linux-root-partition-and-the-installed-packages/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linux Root Partition and the installed packages
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appD_release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appE_bibliography/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bibliography
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-file-and-json-object-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration file and JSON Object Structure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#genearal-input-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Genearal Input parameters
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Genearal Input parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#section-set_surf" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section set_surf
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-set_lrun" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section set_lrun
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#input-parameters-for-spatial-grid-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Input parameters for spatial grid generation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Input parameters for spatial grid generation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#section-set_xygrid" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section set_xyGrid
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-set_zgrid" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section set_zGrid
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#input-parameters-for-date-and-time-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Input parameters for date and time simulation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Input parameters for date and time simulation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#section-set_datetime" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section set_dateTime
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#input-parameters-for-surface-and-lateral-boundary-conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Input parameters for surface and lateral boundary conditions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Input parameters for surface and lateral boundary conditions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#section-set_sbc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section set_sbc
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-set_obc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section set_obc
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-set_tide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section set_tide
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#input-parameters-for-physical-parametrization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Input parameters for physical parametrization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Input parameters for physical parametrization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#section-set_eos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section set_eos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-set_botfric" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section set_botFric
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-set_xyturbtracers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section set_xyturbTracers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-set_xyturbmomentum" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section set_xyturbMomentum
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-set_zturb" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section set_zturb
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#input-parameters-for-downloading-input-datasets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Input parameters for downloading input datasets
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Input parameters for downloading input datasets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#section-set_datadownlcoast_urlname" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section set_dataDownlCoast_urlName
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-set_datadownlcoast_filename" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section set_dataDownlCoast_fileName
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-set_datadownlbat_urlname" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section set_dataDownlBat_urlName
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-set_datadownlbat_filename" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section set_dataDownlBat_fileName
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-set_datadownlbat_varname" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section set_dataDownlBat_varName
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-set_datadownlatmmesh_urlname" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section set_dataDownlAtmMesh_urlName
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-set_datadownlatmmesh_filename" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section set_dataDownlAtmMesh_fileName
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-set_datadownlatmmesh_varname" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section set_dataDownlAtmMesh_varName
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+    
+      
+    
+    <a href="https://github.com/FranzTr/test_doc/raw/main/docs/ch3_user-configuration-file-preprocessing-sections.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5 5 5 0 0 1 5-5 5 5 0 0 1 5 5 5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5Z"/></svg>
+    </a>
+  
+
+
+<h1 id="user-configuration-file-preprocessing-sections"><strong>User Configuration File - Preprocessing Sections</strong></h1>
+<div style="text-align: justify">
+
+To execute the SURF-NEMO package, the user must input several model parameters to select a specific simulation region, the simulation period, horizontal and vertical turbulence schemes, input datasets, interpolation methods, etc.
+These parameters are used to conduct the pre- and post-processing phases and to populate the Fortran namelist required to execute the NEMO-OPA code.
+These choices are made by specifying the values of the input model parameters in the user configuration file "<code>setParFree.json</code>", where all the free-user input parameters are grouped in different sections according to their functionality. In this chapter we provide details of each section of the configuration file and specify the admissible values, the unit measures and the “reference value” used for the test case experiment for each parameter (see Section 6.4).
+Some of the input model parameters are fixed and defined inside the SURF source package in the file
+"<code>setParFix</code>" (see <a href="#reference-configuration">Appendix A</a> for more details)
+
+</div>
+
+<h2 id="configuration-file-and-json-object-structure"><strong>Configuration file and JSON Object Structure</strong></h2>
+<div style="text-align: justify">
+
+The user configuration file has a JavaScript Object Notation (JSON)-based format. JSON is a simple,
+text-based method of storing and transmitting structured data. This format is "self-describing",
+easy to understand and can support complex data types and structures. It is commonly used for configuration files in web applications.
+JSON syntax is derived from JavaScript object notation syntax and can contain either an array of values
+or an object (an associative array of name/value pairs also referred to as properties). An array is surrounded by
+square brackets, [ and ], and contains a comma-separated list of values. An object is surrounded by curly
+brackets,{ and }, and contains a comma-separated list of name/value pairs. A name/value pair consists of
+a field name (in double quotes), followed by a colon (:), followed by the field value. A value in an array or
+object can be of type number (integer or floating-point), string (in double-quotes), boolean (true or false),
+another array (surrounded by square brackets, [ and ]), another object (surrounded by curly brackets, and
+), or null.
+The JSON configuration file defined for the SURF-NEMO package is shown in <a href="#fig-json">Figure 3.1</a>.
+At the top level, we have created the “sections” array, which is an object with just one name/value pair.
+This array contains various objects. Each object contains three properties: a title that reflects the contents
+of the section, a four-digit alphanumeric identifier ID (id = A001, A002, etc. for pre-processing sections and
+id = B001, B002, etc. for post-processing sections) and an array of items delimited by square brackets.
+Each element of the “items” array is an object that is identified by a name, a value, a data type
+(int, float, double, bool and string) and a brief description of the corresponding parameter.
+
+</div>
+
+<div class="d-flex justify-content-center">
+    <figure id="fig-json" class="figure text-center">
+    <a href="../assets/img/jsonFile.png">
+        <img src="../assets/img/jsonFile.png" alt="../assets/img/jsonFile.png" width="100%">
+    </a>
+    <figcaption class="figurenum">JSON representation for the SURF-NEMO user-configuration file.</figcaption>
+    </figure>
+</div>
+
+<h2 id="genearal-input-parameters"><strong>Genearal Input parameters</strong></h2>
+<h3 id="section-set_surf"><strong>Section set_surf</strong></h3>
+<p>The section set_surf contains the following two parameters:</p>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">nnest</code></div>
+    <div class="col-8 pr-0"><p>Number of nesting domain.</p>
+    <p><code>Type</code>: int &nbsp; <code>Ref.Value</code>: 1 &nbsp; <code>Range</code>: 1, 2, 3</p></div>
+    </div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">nameNestDomain</code></div>
+    <div class="col-8 pr-0"><p>Name of the nest domain to simulate.</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: gulfTaranto</p></div>
+</div>
+
+<h3 id="section-set_lrun"><strong>Section set_lrun</strong></h3>
+<p>The section set_lrun contains the logical parameters to activate/deactivate specific tasks.</p>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">lrun_childMeshMask</code></div>
+    <div class="col-8 pr-0"><p>Enables the execution of the CHILD-MESHMASK GENERATION task.</p>
+    <p><code>Type</code>: bool &nbsp; <code>Ref.Value</code>: True</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">lrun_regridPreAtm</code></div>
+    <div class="col-8 pr-0"><p>Enables the execution of the ATMOSPHERIC-DATA-REGRIDDING task.</p>
+    <p><code>Type</code>: bool &nbsp; <code>Ref.Value</code>: True</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">lrun_regridPreOceIC</code></div>
+    <div class="col-8 pr-0"><p>Enables the execution of the OCEAN-IC-DATA-REGRIDDING phase.</p>
+    <p><code>Type</code>: bool &nbsp; <code>Ref.Value</code>: True</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">lrun_regridPreOceBC</code></div>
+    <div class="col-8 pr-0"><p>Enables the execution of the OCEAN-BC-DATA-REGRIDDING phase.</p>
+    <p><code>Type</code>: bool &nbsp; <code>Ref.Value</code>: True</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">lrun_regridPreTideBC</code></div>
+    <div class="col-8 pr-0"><p>Enables the execution of the TIDE-BC-DATA-REGRIDDING phase.</p>
+    <p><code>Type</code>: bool &nbsp; <code>Ref.Value</code>: True</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">lrun_regridPreWeights</code></div>
+    <div class="col-8 pr-0"><p>Enables the computation/copy of WEIGHT-FILEs for input_fields REMAPPING (if lrun_regridPre=True).</p>
+    <p><code>Type</code>: bool &nbsp; <code>Ref.Value</code>: True</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">lrun_ocean</code></div>
+    <div class="col-8 pr-0"><p>Enables the execution of the NEMO codes.</p>
+    <p><code>Type</code>: bool &nbsp; <code>Ref.Value</code>: True</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">lrun_regridOutUV</code></div>
+    <div class="col-8 pr-0"><p>Enables the execution of the output-UV_fields REMAPPING (from UV GRID to T-GRID).</p>
+    <p><code>Type</code>: bool &nbsp; <code>Ref.Value</code>: False</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">lrun_regridOutUVWeghts</code></div>
+    <div class="col-8 pr-0"><p>Enables the computation/copy of WHEGHT-FILEs for output-UV_fields REMAPPING (if lrun_regridOutUV-True).</p>
+    <p><code>Type</code>: bool &nbsp; <code>Ref.Value</code>: False</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">lrun_shapFiltBat</code></div>
+    <div class="col-8 pr-0"><p>Enables the execution of the SHAPIRO Filter for Bathymetric datasets.</p>
+    <p><code>Type</code>: bool &nbsp; <code>Ref.Value</code>: True</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">lrun_shapFiltOce</code></div>
+    <div class="col-8 pr-0"><p>Enable the execution of the SHAPIRO Filter fo Ocean datasets.</p>
+    <p><code>Type</code>: bool &nbsp; <code>Ref.Value</code>: False</p></div>
+</div>
+
+<!-- ===================================================================================================== -->
+
+<h2 id="input-parameters-for-spatial-grid-generation"><strong>Input parameters for spatial grid generation</strong></h2>
+<h3 id="section-set_xygrid"><strong>Section set_xyGrid</strong></h3>
+<p>The section set_xyGrid contains the free input parameters required for the generation of the horizontal model grid.</p>
+
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">gr_xygridSpec</code></div>
+    <div class="col-8 pr-0"><p>Parameters specification for the horizontal grid: if = 0, the grid is function of the 5 variables (lam0,phi0,nlam,nphi,dxy) if = 1, the grid is function of the 5 variables (lam0,phi0,lam1,phi1,dxy)..</p>
+    <p><code>Type</code>: int &nbsp; <code>Ref.Value</code>: 0 &nbsp; <code>Range</code>: 0, 1</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">gr_jpidta</code></div>
+    <div class="col-8 pr-0"><p>Number of grid points in zonal direction to specify if xygridSpec=0 (if =NOTUSED, parameter not read).</p>
+    <p><code>Type</code>: int &nbsp; <code>Ref.Value</code>: 94</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">gr_jpjdta</code></div>
+    <div class="col-8 pr-0"><p>Number of grid points in meridional direction to specify if xygridSpec=0 (if =NOTUSED, parameter not read).</p>
+    <p><code>Type</code>: int &nbsp; <code>Ref.Value</code>: 79</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">gr_ppglam0</code></div>
+    <div class="col-8 pr-0"><p>Longitude of the first raw and column T-point to specify if xygridSpec=0,1.</p>
+    <p><code>Type</code>: float &nbsp; <code>Ref.Value</code>: 16.4375</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">gr_ppglam1</code></div>
+    <div class="col-8 pr-0"><p>Longitude of the last raw and column T-point to specify if xygridSpec=1 (if =NOTUSED, parameter not read).</p>
+    <p><code>Type</code>: float &nbsp; <code>Ref.Value</code>: NOTUSED</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">gr_ppgphi0</code></div>
+    <div class="col-8 pr-0"><p>Latitude of the first raw and column T-point to specify if xygridSpec=0,1.</p>
+    <p><code>Type</code>: float &nbsp; <code>Ref.Value</code>: 38.9375</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">gr_ppgphi1</code></div>
+    <div class="col-8 pr-0"><p>Latitude of the last raw and column T-point to specify if xygridSpec=1 (if =NOTUSED, parameter not read).</p>
+    <p><code>Type</code>: float &nbsp; <code>Ref.Value</code>: NOTUSED</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">gr_jp_cfg</code></div>
+    <div class="col-8 pr-0"><p>Child model resolution (1/gr_jp_cfg) to specify if xygridSpec=0,1.</p>
+    <p><code>Type</code>: float &nbsp; <code>Ref.Value</code>: 48.</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">gr_jp_cfg_father</code></div>
+    <div class="col-8 pr-0"><p>Father model resolution (1/gr_jp_cfg_father).</p>
+    <p><code>Type</code>: float &nbsp; <code>Ref.Value</code>: 16.</p></div>
+</div>
+
+<h3 id="section-set_zgrid"><strong>Section set_zGrid</strong></h3>
+<p>The section set_zGrid contains the free input parameters used to generate the vertical grid.</p>
+
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">gr_jpkdta</code></div>
+    <div class="col-8 pr-0"><p>Number of vertical levels.</p>
+    <p><code>Type</code>: int &nbsp; <code>Ref.Value</code>: 120</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">gr_zgridSpec</code></div>
+    <div class="col-8 pr-0"><p>Parameters specification for the vertical grid: if = 0, the grid is function of the 5 variables (hh0,h1,hsur,hcr,hth) if = 1, the grid is function of the 4 variables (dzmin,hmax,hcr,hth).</p>
+    <p><code>Type</code>: int &nbsp; <code>Ref.Value</code>: 1. &nbsp; <code>Range</code>: 0, 1</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">gr_ppsur</code></div>
+    <div class="col-8 pr-0"><p>Parameter h_sur for the z-coord. trasformation to specify if zgridSpec=0 (if =NOTUSED, parameter not read).</p>
+    <p><code>Type</code>: double &nbsp; <code>Ref.Value</code>: NOTUSED</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">gr_ppa0</code></div>
+    <div class="col-8 pr-0"><p>Parameter h_0 for the z-coordinate trasformation to specify if zgridSpec=0 (if =NOTUSED, parameter not read).</p>
+    <p><code>Type</code>: double &nbsp; <code>Ref.Value</code>: NOTUSED</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">gr_ppa1</code></div>
+    <div class="col-8 pr-0"><p>Parameter h_1 for the z-coordinate trasformation to specify if zgridSpec=0 (if =NOTUSED, parameter not read).</p>
+    <p><code>Type</code>: double &nbsp; <code>Ref.Value</code>: NOTUSED</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">gr_ppkth</code></div>
+    <div class="col-8 pr-0"><p>Parameter h_th which gives the approximate layer number above which stretching will be maximum (usually of order nz/2) to specify if zgridSpec=0,1.</p>
+    <p><code>Type</code>: double &nbsp; <code>Ref.Value</code>: 100</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">gr_ppacr</code></div>
+    <div class="col-8 pr-0"><p>Parameter h_cr which gives the grid stretching factor (the highest gr_ppacr, the smallest the stretching) to specify if zgridSpec=0,1.</p>
+    <p><code>Type</code>: double &nbsp; <code>Ref.Value</code>: 30</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">gr_ppdzminw</code></div>
+    <div class="col-8 pr-0"><p>Depth of the top (first) model layer depth of second 'w' level to specify if zgridSpec=1 (if =NOTUSED, parameter not read).</p>
+    <p><code>Type</code>: double &nbsp; <code>Ref.Value</code>: 2.8</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">gr_pphmaxw</code></div>
+    <div class="col-8 pr-0"><p>Maximum depth of the ocean depth of the last 'w' level (set to 0.0 to be computed) to specify if zgridSpec=1 (if =NOTUSED, parameter not read).</p>
+    <p><code>Type</code>: double &nbsp; <code>Ref.Value</code>: 0.0</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">gr_dbletanh</code></div>
+    <div class="col-8 pr-0"><p>Enables the use of the double tanh function for vertical coordinates.</p>
+    <p><code>Type</code>: bool. &nbsp; <code>Ref.Value</code>: False.</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">gr_ppa2</code></div>
+    <div class="col-8 pr-0"><p>Parameter h_2 to specify if gr_dbletanh=True (if =NOTUSED, parameter not read).</p>
+    <p><code>Type</code>: double &nbsp; <code>Ref.Value</code>: NOTUSED</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">gr_ppkth2</code></div>
+    <div class="col-8 pr-0"><p>Parameter h_th2 if gr_dbletanh=True (if =NOTUSED, parameter not read).</p>
+    <p><code>Type</code>: double &nbsp; <code>Ref.Value</code>: NOTUSED</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">gr_ppacr2</code></div>
+    <div class="col-8 pr-0"><p>Parameter h_cr2 if gr_dbletanh=True (if =NOTUSED, parameter not read).</p>
+    <p><code>Type</code>: double &nbsp; <code>Ref.Value</code>: NOTUSED</p></div>
+</div>
+
+<!-- ===================================================================================================== -->
+
+<h2 id="input-parameters-for-date-and-time-simulation"><strong>Input parameters for date and time simulation</strong></h2>
+<h3 id="section-set_datetime"><strong>Section set_dateTime</strong></h3>
+<p>This section of the JSON file contains the free input parameters used to define the period and time discretization of the simulation.</p>
+
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">start_date</code></div>
+    <div class="col-8 pr-0"><p>Initial date of the simulation (the run starts at 00:00).</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: 20141005</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">ndays</code></div>
+    <div class="col-8 pr-0"><p>Total number of simulation days.</p>
+    <p><code>Type</code>: int &nbsp; <code>Ref.Value</code>: 2</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">ndays_spinup</code></div>
+    <div class="col-8 pr-0"><p>Number of spin-up days.</p>
+    <p><code>Type</code>: int &nbsp; <code>Ref.Value</code>: 1 &nbsp; <code>Range</code>: 0:ndays</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">dom_rdt</code></div>
+    <div class="col-8 pr-0"><p>Simulation 'baroclinic' time step (...40, 48, 50, 60, 72, 80, 90, 100, 120, 144...).</p>
+    <p><code>Type</code>: float &nbsp; <code>Ref.Value</code>: 150.</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">runMan_write</code></div>
+    <div class="col-8 pr-0"><p>Frequency of write in the output file express as the number of simulation time step.</p>
+    <p><code>Type</code>: int &nbsp; <code>Ref.Value</code>: 24</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">dom_btAuto</code></div>
+    <div class="col-8 pr-0"><p>Enables the automatically definition of baro-timestep to be just below a user defined maximum courant number dom_btCmax.</p>
+    <p><code>Type</code>: bool &nbsp; <code>Ref.Value</code>: False</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">dom_btCmax</code></div>
+    <div class="col-8 pr-0"><p>Maximum courant number (allowed if dom_btAuto=True).</p>
+    <p><code>Type</code>: float &nbsp; <code>Ref.Value</code>: 0.8</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">dom_baro</code></div>
+    <div class="col-8 pr-0"><p>Number of iterations of barotropic mode during dom_rdt (allowed if dom_btAuto=False).</p>
+    <p><code>Type</code>: int &nbsp; <code>Ref.Value</code>: 100</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">runMan_rstart</code></div>
+    <div class="col-8 pr-0"><p>Start from rest (False) or from a restart file (True).</p>
+    <p><code>Type</code>: bool &nbsp; <code>Ref.Value</code>: True</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">ndays_xsimu</code></div>
+    <div class="col-8 pr-0"><p>Number of days per each restart simulation.</p>
+    <p><code>Type</code>: float &nbsp; <code>Ref.Value</code>: 1</p></div>
+</div>
+
+<!-- ===================================================================================================== -->
+
+<h2 id="input-parameters-for-surface-and-lateral-boundary-conditions"><strong>Input parameters for surface and lateral boundary conditions</strong></h2>
+<h3 id="section-set_sbc"><strong>Section set_sbc</strong></h3>
+<p>This section of the JSON file contains the free input parameters used to define surface boundary condition.</p>
+<div class="row mx-0">
+<div class="col-3 pl-0"><code class="mycode">sbc_iformulat</code></div>
+<div class="col-8 pr-0"><p>Surface boundary condition formulation to be used (=0)MFS bulk formulat,(=1)fluxform+ssRest,(=2)CORE formulation.</p>
+                        <p><code>Type</code>: int &nbsp; <code>Ref.Value</code>: 0 &nbsp; <code>Range</code>: 0, 1, 2</p></div>
+</div>
+<div class="row mx-0">
+<div class="col-3 pl-0"><code class="mycode">sbc_ltimeInterp</code></div>
+<div class="col-8 pr-0"><p>Activate, or not, the time interpolation (=False) steplike shape forcing (=True) broken line shape forcing.</p>
+                        <p><code>Type</code>: bool &nbsp; <code>Ref.Value</code>: True</p></div>
+</div>
+<div class="row mx-0">
+<div class="col-3 pl-0"><code class="mycode">sbc_zreftemp</code></div>
+<div class="col-8 pr-0"><p>Reference height (m) for the Air Temperature and humidity (for the CORE formulation).</p>
+                        <p><code>Type</code>: float &nbsp; <code>Ref.Value</code>: 10.</p></div>
+</div>
+<div class="row mx-0">
+<div class="col-3 pl-0"><code class="mycode">sbc_zrefwind</code></div>
+<div class="col-8 pr-0"><p>Reference height (m) for the wind vector (for the CORE formulation).</p>
+                        <p><code>Type</code>: float &nbsp; <code>Ref.Value</code>: 10.</p></div>
+</div>
+<div class="row mx-0">
+<div class="col-3 pl-0"><code class="mycode">sbc_aprdyn</code></div>
+<div class="col-8 pr-0"><p>Enables the inclusion of atmospheric pressure gradien in ocean and ice Eqs..</p>
+                        <p><code>Type</code>: bool &nbsp; <code>Ref.Value</code>: False</p></div>
+</div>
+<div class="row mx-0">
+<div class="col-3 pl-0"><code class="mycode">sbc_sclapr</code></div>
+<div class="col-8 pr-0"><p>Scaling factor to convert atmospheric presure from hPa to Pa.</p>
+                        <p><code>Type</code>: float &nbsp; <code>Ref.Value</code>: 1.</p></div>
+</div>
+
+<h3 id="section-set_obc"><strong>Section set_obc</strong></h3>
+<p>This section of the JSON file contains the free input parameters used to define lateral open boundary conditions.</p>
+
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">obc_dyn2d</code></div>
+    <div class="col-8 pr-0"><p>Algorithm of boundary condition for barotropic solution: flather.</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: flather &nbsp; <code>Range</code>: flather</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">obc_dyn2d_dta</code></div>
+    <div class="col-8 pr-0"><p>Boundary data to use: (=0)Initial condition (=1)external data (=2)tidal forcing (=3)xternal data+tidal.</p>
+    <p><code>Type</code>: int &nbsp; <code>Ref.Value</code>: 1 &nbsp; <code>Range</code>: 0, 1, 2 ,3</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">obc_dyn3d</code></div>
+    <div class="col-8 pr-0"><p>Algorithm of boundary condition for baroclinic velocities: frs, orlanski.</p>
+    <p><code>Type</code>: string  &nbsp; <code>Ref.Value</code>: frs &nbsp; <code>Range</code>: frs, orlanski</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">obc_dyn3d_dta</code></div>
+    <div class="col-8 pr-0"><p>Boundary data to use: (=0)Initial condition (=1)external data.</p>
+    <p><code>Type</code>: int &nbsp; <code>Ref.Value</code>: 1 &nbsp; <code>Range</code>: 0, 1</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">obc_tra</code></div>
+    <div class="col-8 pr-0"><p>Algorithm of boundary condition for active tracers: frs, orlanski.</p>
+    <p><code>Type</code>: string  &nbsp; <code>Ref.Value</code>: frs &nbsp; <code>Range</code>: frs, orlanski</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">obc_tra_dta</code></div>
+    <div class="col-8 pr-0"><p>Boundary data to use: (=0)Initial condition (=1)external data.</p>
+    <p><code>Type</code>: int &nbsp; <code>Ref.Value</code>: 1 &nbsp; <code>Range</code>: 0, 1</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">obc_rimwidth</code></div>
+    <div class="col-8 pr-0"><p>Width of the FRS zone.</p>
+    <p><code>Type</code>: int &nbsp; <code>Ref.Value</code>: 1</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">obc_ltimeInterp</code></div>
+    <div class="col-8 pr-0"><p>Activate, or not, the time interpolation (=False) steplike shape forcing (=True) broken line shape forcing.</p>
+    <p><code>Type</code>: bool &nbsp; <code>Ref.Value</code>: True</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">obc_lvelCorr</code></div>
+    <div class="col-8 pr-0"><p>Activate the Integral Contraint method to preserve the total transport after the interpolation.</p>
+    <p><code>Type</code>: bool &nbsp; <code>Ref.Value</code>: False</p></div>
+</div>
+
+<h3 id="section-set_tide"><strong>Section set_tide</strong></h3>
+<p>This section of the JSON file contains the free input parameters used to define the tidal components which can be added both as the equilibrium tidal sea level and/or only at the lateral boundaries</p>
+
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">latBtide_lPot</code></div>
+    <div class="col-8 pr-0"><p>Enables the use of tidal potential forcing.</p>
+    <p><code>Type</code>: bool &nbsp; <code>Ref.Value</code>: True</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">latBtide_K1</code></div>
+    <div class="col-8 pr-0"><p>Name of the Lunar diurnal K1 tidal component (if =NOTUSED, component not used).</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: K1 &nbsp; <code>Range</code>: K1</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">latBtide_O1</code></div>
+    <div class="col-8 pr-0"><p>Name of the Lunar diurnal O1 tidal component (if =NOTUSED, component not used).</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: O1 &nbsp; <code>Range</code>: O1</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">latBtide_P1</code></div>
+    <div class="col-8 pr-0"><p>Name of the Solar diurnal P1 tidal component (if =NOTUSED, component not used).</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: P1 &nbsp; <code>Range</code>: P1</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">latBtide_Q1</code></div>
+    <div class="col-8 pr-0"><p>Name of the Larger lunar elliptic diurnal Q1 tidal component (if =NOTUSED, component not used).</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: Q1 &nbsp; <code>Range</code>: Q1</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">latBtide_K2</code></div>
+    <div class="col-8 pr-0"><p>Name of the Lunisolar semidiurnal K2 tidal component (if =NOTUSED, component not used)</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: K2 &nbsp; <code>Range</code>: K2</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">latBtide_M2</code></div>
+    <div class="col-8 pr-0"><p>Name of the Principal lunar semidiurnal M2 tidal component (if =NOTUSED, component not used).</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: M2 &nbsp; <code>Range</code>: M2</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">latBtide_N2</code></div>
+    <div class="col-8 pr-0"><p>Name of the Larger lunar elliptic semidiurnal N2 tidal component (if =NOTUSED, component not used).</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: N2 &nbsp; <code>Range</code>: N2</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">latBtide_S2</code></div>
+    <div class="col-8 pr-0"><p>Name of the Principal solar semidiurnal S2 tidal component (if =NOTUSED, component not used).</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: S2 &nbsp; <code>Range</code>: S2</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">latBtide_M4</code></div>
+    <div class="col-8 pr-0"><p>Name of the Shallow water overtides of principal lunar M4 tidal component (if =NOTUSED, component not used).</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: M4 &nbsp; <code>Range</code>: M4</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">latBtide_Mm</code></div>
+    <div class="col-8 pr-0"><p>Name of the Lunar monthly Mm tidal component (if =NOTUSED, component not used).</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: Mm &nbsp; <code>Range</code>: Mm</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">latBtide_Mf</code></div>
+    <div class="col-8 pr-0"><p>Name of the Lunisolar fortnightly Mf tidal component (if =NOTUSED, component not used).</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: Mf &nbsp; <code>Range</code>: Mf</p></div>
+</div>
+
+<!-- ===================================================================================================== -->
+
+<h2 id="input-parameters-for-physical-parametrization"><strong>Input parameters for physical parametrization</strong></h2>
+<h3 id="section-set_eos"><strong>Section set_eos</strong></h3>
+<p>This section of the JSON file contains the free input parameters used to define equation of state of sea water.</p>
+
+<div class="row mx-0">
+<div class="col-3 pl-0"><code class="mycode">eos_type</code></div>
+<div class="col-8 pr-0"><p>type of equation of state and Brunt-Vaisala frequency: (=-1)TEOS-10, (=0)EOS-80, (=1)S-EOS.</p>
+                        <p><code>Type: int</code> &nbsp; <code>Ref.Value</code>: 0 &nbsp; <code>Range</code>: -1, 0, 1</p></div>
+</div>
+<div class="row mx-0">
+<div class="col-3 pl-0"><code class="mycode">eos_useCT</code></div>
+<div class="col-8 pr-0"><p>Enables the use of Conservative Temp. ==> surface CT converted in Pot. Temp. in sbcssm.</p>
+                        <p><code>Type: bool</code> &nbsp; <code>Ref.Value</code>: False</p></div>
+</div>
+<div class="row mx-0">
+<div class="col-3 pl-0"><code class="mycode">eos_a0</code></div>
+<div class="col-8 pr-0"><p>S-EOS coefficients: thermal expension coefficient.</p>
+                        <p><code>Type: float</code> &nbsp; <code>Ref.Value</code>: 0.1655</p></div>
+</div>
+<div class="row mx-0">
+<div class="col-3 pl-0"><code class="mycode">eos_b0</code></div>
+<div class="col-8 pr-0"><p>S-EOS coefficients: saline expension coefficient.</p>
+                        <p><code>Type: float</code> &nbsp; <code>Ref.Value</code>: 0.76554</p></div>
+</div>
+<div class="row mx-0">
+<div class="col-3 pl-0"><code class="mycode">eos_lambda1</code></div>
+<div class="col-8 pr-0"><p>S-EOS coefficients: cabbeling coeff in T^2  (=0 for linear eos).</p>
+                        <p><code>Type: float</code> &nbsp; <code>Ref.Value</code>: 0.05952</p></div>
+</div>
+<div class="row mx-0">
+<div class="col-3 pl-0"><code class="mycode">eos_lambda2</code></div>
+<div class="col-8 pr-0"><p>S-EOS coefficients: cabbeling coeff in S^2  (=0 for linear eos).</p>
+                        <p><code>Type: float</code> &nbsp; <code>Ref.Value</code>: 0.00074914</p></div>
+</div>
+<div class="row mx-0">
+<div class="col-3 pl-0"><code class="mycode">eos_mu1</code></div>
+<div class="col-8 pr-0"><p>S-EOS coefficients: thermobaric coeff. in T (=0 for linear eos).</p>
+                        <p><code>Type: float</code> &nbsp; <code>Ref.Value</code>: 0.0001497</p></div>
+</div>
+<div class="row mx-0">
+<div class="col-3 pl-0"><code class="mycode">eos_mu2</code></div>
+<div class="col-8 pr-0"><p>S-EOS coefficients: thermobaric coeff. in S (=0 for linear eos).</p>
+                        <p><code>Type: float</code> &nbsp; <code>Ref.Value</code>: 1.109e-05</p></div>
+</div>
+<div class="row mx-0">
+<div class="col-3 pl-0"><code class="mycode">eos_nu</code></div>
+<div class="col-8 pr-0"><p>S-EOS coefficients: cabbeling coeff in T*S  (=0 for linear eos).</p>
+                        <p><code>Type: float</code> &nbsp; <code>Ref.Value</code>: 0.0024341</p></div>
+</div>
+
+<!-- ===================================================================================================== -->
+
+<h3 id="section-set_botfric"><strong>Section set_botFric</strong></h3>
+<p>This section of the JSON file contains the free input parameters used to define the bottom friction</p>
+
+<div class="row mx-0">
+<div class="col-3 pl-0"><code class="mycode">botB_bfri2</code></div>
+<div class="col-8 pr-0"><p>Bottom drag coefficient (non linear case).</p>
+                        <p><code>Type</code>: float &nbsp; <code>Ref.Value</code>: 1.e-3</p></div>
+</div>
+<div class="row mx-0">
+<div class="col-3 pl-0"><code class="mycode">botB_bfeb2</code></div>
+<div class="col-8 pr-0"><p>Bottom turbulent kinetic energy background (m^2/s^2).</p>
+                        <p><code>Type</code>: float &nbsp; <code>Ref.Value</code>: 2.5e-3</p></div>
+</div>
+
+<!-- ===================================================================================================== -->
+
+<h3 id="section-set_xyturbtracers"><strong>Section set_xyturbTracers</strong></h3>
+<p>This section of the JSON file contains the free input parameters used to define the parameterization of lateral subgrid-scale diffusion for tracers. </p>
+
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">tra_typeOperator</code></div>
+    <div class="col-8 pr-0"><p>Type of the operator used (0)laplacian, (1)bilaplacian.</p>
+    <p><code>Type</code>: int &nbsp; <code>Ref.Value</code>: 0 &nbsp; <code>Range</code>: 0, 1</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">tra_eddycoeffSpec</code></div>
+    <div class="col-8 pr-0"><p>Horizontal eddy coeff. specification (0)def. by coeff. tra_eddycoeff_child, (1)def. from coeff. tra_eddycoeff_father according fat/child coeff. relation.</p>
+    <p><code>Type</code>: int &nbsp; <code>Ref.Value</code>: 0 &nbsp; <code>Range</code>: 0, 1</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">tra_eddycoeff_child</code></div>
+    <div class="col-8 pr-0"><p>Horizontal eddy diffusivity (>0 (m2/s) laplacian or < 0 (m4/s2) bilaplacian) of the child model (if =NOTUSED, parameter not read).</p>
+    <p><code>Type</code>: float &nbsp; <code>Ref.Value</code>: 80.</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">tra_eddycoeff_father</code></div>
+    <div class="col-8 pr-0"><p>Horizontal eddy diffusivity (>0 (m2/s) laplacian or < 0 (m4/s2) bilaplacian) of the father model to be used in fat/child coeff. relation (if =NOTUSED, parameter not read).</p>
+    <p><code>Type</code>: float &nbsp; <code>Ref.Value</code>: NOTUSED</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">tra_factor</code></div>
+    <div class="col-8 pr-0"><p>Factor to be used in fat/child coeff. relation (if laplacian:(a_child=factor*???), if bilaplacian:(a_child=factor*a_fat(Dx_child/Dx_fat)^4)).</p>
+    <p><code>Type</code>: float &nbsp; <code>Ref.Value</code>: 1</p></div>
+</div>
+
+<!-- ===================================================================================================== -->
+
+<h3 id="section-set_xyturbmomentum"><strong>Section set_xyturbMomentum</strong></h3>
+<p>This section of the JSON file contains the free input parameters used to define the parameterization of lateral subgrid-scale viscosity for momentum. </p>
+
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">dyn_typeOperator</code></div>
+    <div class="col-8 pr-0"><p>type of the operator used (0)laplacian, (1)bilaplacian.</p>
+    <p><code>Type</code>: int &nbsp; <code>Ref.Value</code>: 1 &nbsp; <code>Range</code>: 0, 1</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">dyn_eddycoeffSpec</code></div>
+    <div class="col-8 pr-0"><p>horizontal eddy coeff. specification (0)def. by coeff. dyn_eddycoeff_child, (1)def. from coeff. dyn_eddycoeff_father according fat/chld coeff. relation.</p>
+    <p><code>Type</code>: int &nbsp; <code>Ref.Value</code>: 1 &nbsp; <code>Range</code>: 0, 1</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">dyn_eddycoeff_child</code></div>
+    <div class="col-8 pr-0"><p>horizontal eddy viscosity (>0 (m2/s) laplacian or < 0 (m4/s2) bilaplacian) of the child model (if =NOTUSED, parameter not read).</p>
+    <p><code>Type</code>: float &nbsp; <code>Ref.Value</code>: NOTUSED</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">dyn_eddycoeff_father</code></div>
+    <div class="col-8 pr-0"><p>horizontal eddy viscosity (>0 (m2/s) laplacian or < 0 (m4/s2) bilaplacian) of the father model to be used in fat/child coeff. relation (if =NOTUSED, parameter not read).</p>
+    <p><code>Type</code>: float &nbsp; <code>Ref.Value</code>: -0.5e10</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">dyn_factor</code></div>
+    <div class="col-8 pr-0"><p>factor to be used in father/child coeff. relation (if laplacian:(a_child=factor*???), if bilaplacian:(a_child=factor*a_fat(Dx_child/Dx_fat)^4)).</p>
+    <p><code>Type</code>: float &nbsp; <code>Ref.Value</code>: 1.</p></div>
+</div>
+
+<!-- ===================================================================================================== -->
+
+<h3 id="section-set_zturb"><strong>Section set_zturb</strong></h3>
+<p>This section of the JSON file contains the free input parameters used to define the vertical eddy viscosity and diffusivity coefficients</p>
+
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">zdyn_avm0</code></div>
+    <div class="col-8 pr-0"><p>Vertical eddy viscosity [m2/s] (background Kz if not 'key_zdfcst').</p>
+    <p><code>Type</code>: float &nbsp; <code>Ref.Value</code>: 1.2e-5</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">zdyn_avt0</code></div>
+    <div class="col-8 pr-0"><p>Vertical eddy diffusivity [m2/s] (background Kz if not 'key_zdfcst').</p>
+    <p><code>Type</code>: float &nbsp; <code>Ref.Value</code>: 1.2e-6</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">zdyn_avevd</code></div>
+    <div class="col-8 pr-0"><p>Evd mixing coefficient [m2/s].</p>
+    <p><code>Type</code>: float &nbsp; <code>Ref.Value</code>: 10.</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">zdynric_avmri</code></div>
+    <div class="col-8 pr-0"><p>Maximum value of the vertical viscosity.</p>
+    <p><code>Type</code>: float &nbsp; <code>Ref.Value</code>: 1.e-2</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">zdynric_alp</code></div>
+    <div class="col-8 pr-0"><p>Vertical eddy viscosity [m2/s] (background Kz if not 'key_zdfcst').</p>
+    <p><code>Type</code>: float &nbsp; <code>Ref.Value</code>: 5.</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">zdynric_ric</code></div>
+    <div class="col-8 pr-0"><p>Vertical eddy viscosity [m2/s] (background Kz if not 'key_zdfcst').</p>
+    <p><code>Type</code>: float &nbsp; <code>Ref.Value</code>: 2.</p></div>
+</div>
+
+<!-- ===================================================================================================== -->
+
+<h2 id="input-parameters-for-downloading-input-datasets"><strong>Input parameters for downloading input datasets</strong></h2>
+<h3 id="section-set_datadownlcoast_urlname"><strong>Section set_dataDownlCoast_urlName</strong></h3>
+<p>This section of the JSON file contains the parameters needed to make up the URL that is required to access the input coastline datasets from a local or remote ropository.</p>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">urlCoast_usr</code></div>
+    <div class="col-8 pr-0"><p>Username to access the coastline datasets from a remote ftp server.</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: usr</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">urlCoast_pwd</code></div>
+    <div class="col-8 pr-0"><p>Password to access the coastline datasets from a remote ftp server.</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: pwd</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">urlCoast_urlbase</code></div>
+    <div class="col-8 pr-0"><p>Parametric urlname (i.e. ftp:/... or file:///...) for the coastline datasets. Parameters: (RESCOAST).</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: file:///scratch/surf/surf_datasets/current/coastline/GSHHS_shp/(RESCOAST)</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">urlCoast_resol</code></div>
+    <div class="col-8 pr-0"><p>Name for spatial resolution used to replace the substring (RESCOAST) on the parametric urlname (if =NOTUSED, parameter not read).</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: h &nbsp; <code>Range</code>: f, h, i, l, c</p></div>
+</div>
+
+<h3 id="section-set_datadownlcoast_filename"><strong>Section set_dataDownlCoast_fileName</strong></h3>
+<p>This section of the JSON file contains the parameters for the FILENAMEs of the input coastline datasets.</p>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">fileCoast_lland</code></div>
+    <div class="col-8 pr-0"><p>Enables the use of the land coastline.</p>
+    <p><code>Type</code>: bool &nbsp; <code>Ref.Value</code>: True</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">fileCoast_filebaseLand</code></div>
+    <div class="col-8 pr-0"><p>Files name for NOAA coastline datasets contains boundary between land and ocean (if fileCoast_lland=True). Parameters: (RESCOAST).</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: GSHHS_(RESCOAST)_L1.shp</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">fileCoast_llake</code></div>
+    <div class="col-8 pr-0"><p>Enables the use of the lake coastline.</p>
+    <p><code>Type</code>: bool &nbsp; <code>Ref.Value</code>: False</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">fileCoast_filebaseLake</code></div>
+    <div class="col-8 pr-0"><p>Files name for NOAA coastline datasets contains boundary between lake and land (if fileCoast_llake=True). Parameters: (RESCOAST).</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: GSHHS_(RESCOAST)_L2.shp</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">fileCoast_lislandlake</code></div>
+    <div class="col-8 pr-0"><p>Enables the use of the islelake coastline.</p>
+    <p><code>Type</code>: bool &nbsp; <code>Ref.Value</code>: False</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">fileCoast_filebaseIslandlake</code></div>
+    <div class="col-8 pr-0"><p>Files name for NOAA coastline datasets contains boundary between island-in-lake and lake (if fileCoast_lislandlake=True). Parameters: (RESCOAST).</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: GSHHS_(RESCOAST)_L3.shp</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">fileCoast_resol</code></div>
+    <div class="col-8 pr-0"><p>Name for spatial resolution used to replace the substring (RESCOAST) on the parametric file name (if =NOTUSED, parameter not read).</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: h</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">fileCoast_lcompression</code></div>
+    <div class="col-8 pr-0"><p>(=True) if datasets you want to download are gzip compressed files (*.gz).</p>
+    <p><code>Type</code>: bool &nbsp; <code>Ref.Value</code>: False</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">fileCoast_lkeepSrcFull</code></div>
+    <div class="col-8 pr-0"><p>(=True) if you want to keep in your disk the downloaded uncutted datasets.</p>
+    <p><code>Type</code>: bool &nbsp; <code>Ref.Value</code>: True</p></div>
+</div>
+
+<h3 id="section-set_datadownlbat_urlname"><strong>Section set_dataDownlBat_urlName</strong></h3>
+<p>This section of the JSON file contains the parameters needed to make up the URL that is required to access the input bathymetry datasets from a local or remote ropository.</p>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">urlBat_usr</code></div>
+    <div class="col-8 pr-0"><p>Username to access the bathymetric datasets from a remote ftp server.</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: usr</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">urlBat_pwd</code></div>
+    <div class="col-8 pr-0"><p>Password to access the bathymetric datasets from a remote ftp server.</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: pwd</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">urlBat_urlbase</code></div>
+    <div class="col-8 pr-0"><p>Parametric urlname (i.e. ftp:/... or file:///...) for the bathymetric datasets. Parameters: (RESOL).</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: usr</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">urlBat_resol</code></div>
+    <div class="col-8 pr-0"><p>Name for spatial resolution used to replace the substring (RESOL) on the parametric urlname (if =NOTUSED, parameter not read).</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: h</p></div>
+</div>
+
+<h3 id="section-set_datadownlbat_filename"><strong>Section set_dataDownlBat_fileName</strong></h3>
+<p>This section of the JSON file contains the parameters for the FILENAME of the input bathymetry datasets.</p>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">fileBat_filebase</code></div>
+    <div class="col-8 pr-0"><p>Parametric filename for the source bathymetric datasets. Parameters: (RESBAT).</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: macroMED_bathyGEBCO.nc</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">fileBat_resol</code></div>
+    <div class="col-8 pr-0"><p>Name for spatial resolution used to replace the substring (RESBAT) on the parametric file name (if =NOTUSED, parameter not read).</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: NOTUSED</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">fileBat_lcompression</code></div>
+    <div class="col-8 pr-0"><p>(=True) if datasets you want to download are gzip compressed files (*.gz).</p>
+    <p><code>Type</code>: bool &nbsp; <code>Ref.Value</code>: False</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">fileBat_llonFlip</code></div>
+    <div class="col-8 pr-0"><p>(=True) if longitude coord. is in the 0 to 360 range and (=False) if longitude is in -180:+180 range.</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: macroMED_bathyGEBCO.nc</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">fileBat_llatInv</code></div>
+    <div class="col-8 pr-0"><p>(=True) if the dataset contains latitude decreasing through the pole.</p>
+    <p><code>Type</code>: bool &nbsp; <code>Ref.Value</code>: False</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">fileBat_ldepthIncr</code></div>
+    <div class="col-8 pr-0"><p>(=True) if the dataset contains sea floor elevation (positive) increases with increasing water depth.</p>
+    <p><code>Type</code>: bool &nbsp; <code>Ref.Value</code>: False</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">fileBat_lkeepSrcFull</code></div>
+    <div class="col-8 pr-0"><p>(=True) if you want to keep in your disk the downloaded uncutted datasets.</p>
+    <p><code>Type</code>: bool &nbsp; <code>Ref.Value</code>: False</p></div>
+</div>
+
+<h3 id="section-set_datadownlbat_varname"><strong>Section set_dataDownlBat_varName</strong></h3>
+<p>This section of the JSON file contains the parameters for the VARIABLE-NAMEs of the input bathymetry datasets.</p>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">srcDimBat_lon</code></div>
+    <div class="col-8 pr-0"><p>Name of the dimension for the longitude.</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: lon</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">srcDimBat_lat</code></div>
+    <div class="col-8 pr-0"><p>Name of the dimension for the latitude.</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: lat</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">srcCrdBat_lon</code></div>
+    <div class="col-8 pr-0"><p>Name of the coordinate variable for the longitude.</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: lon</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">srcCrdBat_lat</code></div>
+    <div class="col-8 pr-0"><p>Name of the coordinate variable for the latitude.</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: lat</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">srcVarBat_elev</code></div>
+    <div class="col-8 pr-0"><p>Name of the variable for the Sea Floor Elevation.</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: elevation</p></div>
+</div>
+
+<h3 id="section-set_datadownlatmmesh_urlname"><strong>Section set_dataDownlAtmMesh_urlName</strong></h3>
+<p>This section of the JSON file contains the parameters needed to make up the URL that is required to access the input atmospheric meshmask datasets from a local or remote ropository.</p>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">urlAtmMesh_usr</code></div>
+    <div class="col-8 pr-0"><p>Username to access the input atmospheric meshmask datasets from a remote ftp server.</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: usr</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">urlAtmMesh_pwd</code></div>
+    <div class="col-8 pr-0"><p>Password to access the input atmospheric meshmask datasets from a remote ftp server.</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: pwd</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">urlAtmMesh_urlbase</code></div>
+    <div class="col-8 pr-0"><p>Parametric urlname (i.e. ftp:/... or file:///...) for input atmospheric meshmask datasets. Parameters: (FIELD),YYYY(p)MM(p)DD(p).</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: file:///scratch/surf/indata_offline/gulfTaranto_20141005/data/data00/indata/atmosphere/srcFull</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">urlAtmMesh_velU</code></div>
+    <div class="col-8 pr-0"><p>Name for the Zonal Air Velocity used to replace the substring (FIELD) on the parametric urlname.</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: v10m</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">urlAtmMesh_velV</code></div>
+    <div class="col-8 pr-0"><p>Name for the Meridional Air Velocity used to replace the substring (FIELD) on the parametric urlname.</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: v10m</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">urlAtmMesh_mslp</code></div>
+    <div class="col-8 pr-0"><p>Name for the Mean Sea-Level Pressure used to replace the substring (FIELD) on the parametric urlname.</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: mslp</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">urlAtmMesh_cloudCov</code></div>
+    <div class="col-8 pr-0"><p>Name for the Total Cloud Cover used to replace the substring (FIELD) on the parametric urlname.</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: tcc</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">urlAtmMesh_temp</code></div>
+    <div class="col-8 pr-0"><p>Name for the Air Temperature used to replace the substring (FIELD) on the parametric urlname.</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: t2m</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">urlAtmMesh_dpTemp</code></div>
+    <div class="col-8 pr-0"><p>"Name for the Dewpoint Temperature used to replace the substring (FIELD) on the parametric urlname.</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: d2m</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">urlAtmMesh_prec</code></div>
+    <div class="col-8 pr-0"><p>Name for the Total Precipitation used to replace the substring (FIELD) on the parametric urlname.</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: precip</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">urlAtmMesh_tauU</code></div>
+    <div class="col-8 pr-0"><p>Name for the Zonal Wind Stress used to replace the substring (FIELD) on the parametric urlname.</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: tauU</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">urlAtmMesh_tauV</code></div>
+    <div class="col-8 pr-0"><p>Name for the Meridional Wind Stress used to replace the substring (FIELD) on the parametric urlname.</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: tauV</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">urlAtmMesh_qtot</code></div>
+    <div class="col-8 pr-0"><p>Name for the Total Heat Flux used to replace the substring (FIELD) on the parametric urlname.</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: qtot</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">urlAtmMesh_qsr</code></div>
+    <div class="col-8 pr-0"><p>Name for the Solar Radiation Penetration used to replace the substring (FIELD) on the parametric urlname.</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: qsr</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">urlAtmMesh_emp</code></div>
+    <div class="col-8 pr-0"><p>Name for the Mass Flux Exchanged used to replace the substring (FIELD) on the parametric urlname.</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: emp</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">urlAtmMesh_tempS</code></div>
+    <div class="col-8 pr-0"><p>Name for the Surface Temperature used to replace the substring (FIELD) on the parametric urlname.</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: sst</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">urlAtmMesh_salS</code></div>
+    <div class="col-8 pr-0"><p>Name for the Surface Salinity used to replace the substring (FIELD) on the parametric urlname.</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: sss</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">urlAtmMesh_umid</code></div>
+    <div class="col-8 pr-0"><p>Name for the Air Umidity used to replace the substring (FIELD) on the parametric urlname.</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: umid</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">urlAtmMesh_radLW</code></div>
+    <div class="col-8 pr-0"><p>Name for the Long Wave Radiation used to replace the substring (FIELD) on the parametric urlname.</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: lwrd</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">urlAtmMesh_radSW</code></div>
+    <div class="col-8 pr-0"><p>Name for the Short Wave Radiation used to replace the substring (FIELD) on the parametric urlname.</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: swrd</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">urlAtmMesh_snow</code></div>
+    <div class="col-8 pr-0"><p>Name for the Solid Precipitation used to replace the substring (FIELD) on the parametric urlname.</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: snow</p></div>
+</div>
+
+<h3 id="section-set_datadownlatmmesh_filename"><strong>Section set_dataDownlAtmMesh_fileName</strong></h3>
+<p>This section of the JSON file contains the parameters needed to make up the FILENAMEs of the input atmospheric meshmask datasets.</p>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">fileAtmMesh_filebase_velU</code></div>
+    <div class="col-8 pr-0"><p>Parametric filename for the Zonal Air Velocity datasets before the spinup-time (if sbc_iformulat=0,2). Parameters: YYYY(p)MM(p)DD(p),YYYY(i)MM(i)DD(i),YYYY(i-1)MM(i-1)DD(i-1),YYYY(i+1)MM(i+1)DD(i+1).</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: YYYY(i)MM(i)DD(i)-ECMWF---AM0125-MEDATL-bYYYY(i+1)MM(i+1)DD(i+1)_an-fv05.00.nc</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">fileAtmMesh_filebase_velV</code></div>
+    <div class="col-8 pr-0"><p>Parametric filename for the Meridional Air Velocity datasets before the spinup-time (if sbc_iformulat=0,2). Parameters: YYYY(p)MM(p)DD(p),YYYY(i)MM(i)DD(i),YYYY(i-1)MM(i-1)DD(i-1),YYYY(i+1)MM(i+1)DD(i+1).</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: YYYY(i)MM(i)DD(i)-ECMWF---AM0125-MEDATL-bYYYY(i+1)MM(i+1)DD(i+1)_an-fv05.00.nc</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">fileAtmMesh_filebase_mslp</code></div>
+    <div class="col-8 pr-0"><p>Parametric filename for the Mean Sea-Level Pressure datasets before the spinup-time (if sbc_iformulat=0 or/and sbc_aprdyn). Parameters: YYYY(p)MM(p)DD(p),YYYY(i)MM(i)DD(i),YYYY(i-1)MM(i-1)DD(i-1),YYYY(i+1)MM(i+1)DD(i+1).</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: YYYY(i)MM(i)DD(i)-ECMWF---AM0125-MEDATL-bYYYY(i+1)MM(i+1)DD(i+1)_an-fv05.00.nc</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">fileAtmMesh_filebase_cloudCov</code></div>
+    <div class="col-8 pr-0"><p>Parametric filename for the Total Cloud Cover datasets before the spinup-time (if sbc_iformulat=0). Parameters: YYYY(p)MM(p)DD(p),YYYY(i)MM(i)DD(i),YYYY(i-1)MM(i-1)DD(i-1),YYYY(i+1)MM(i+1)DD(i+1).</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: YYYY(i)MM(i)DD(i)-ECMWF---AM0125-MEDATL-bYYYY(i+1)MM(i+1)DD(i+1)_an-fv05.00.nc</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">fileAtmMesh_filebase_temp</code></div>
+    <div class="col-8 pr-0"><p>Parametric filename for the Air Temperature datasets before the spinup-time (if sbc_iformulat=0,2). Parameters: YYYY(p)MM(p)DD(p),YYYY(i)MM(i)DD(i),YYYY(i-1)MM(i-1)DD(i-1),YYYY(i+1)MM(i+1)DD(i+1).</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: YYYY(i)MM(i)DD(i)-ECMWF---AM0125-MEDATL-bYYYY(i+1)MM(i+1)DD(i+1)_an-fv05.00.nc</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">fileAtmMesh_filebase_dpTemp</code></div>
+    <div class="col-8 pr-0"><p>Parametric filename for the Dewpoint Temperature datasets before the spinup-time (if sbc_iformulat=0). Parameters: YYYY(p)MM(p)DD(p),YYYY(i)MM(i)DD(i),YYYY(i-1)MM(i-1)DD(i-1),YYYY(i+1)MM(i+1)DD(i+1).</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: YYYY(i)MM(i)DD(i)-ECMWF---AM0125-MEDATL-bYYYY(i+1)MM(i+1)DD(i+1)_an-fv05.00.nc</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">fileAtmMesh_filebase_prec</code></div>
+    <div class="col-8 pr-0"><p>Parametric filename for the Total Precipitation datasets before the spinup-time (if sbc_iformulat=0,2). Parameters: YYYY(p)MM(p)DD(p),YYYY(i)MM(i)DD(i),YYYY(i-1)MM(i-1)DD(i-1),YYYY(i+1)MM(i+1)DD(i+1).</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: YYYY(i)MM(i)DD(i)_YYYY(i+1)MM(i+1)DD(i+1)-ECMWF---AM025-MEDATL-bYYYY(i)MM(i)DD(i)_fc00-fv02.00_PREC.nc</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">fileAtmMesh_filebase_tauU</code></div>
+    <div class="col-8 pr-0"><p>Parametric filename for the Zonal Wind Stress datasets before the spinup-time (if sbc_iformulat=1). Parameters: YYYY(p)MM(p)DD(p),YYYY(i)MM(i)DD(i),YYYY(i-1)MM(i-1)DD(i-1),YYYY(i+1)MM(i+1)DD(i+1).</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: NOTUSED</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">fileAtmMesh_filebase_tauV</code></div>
+    <div class="col-8 pr-0"><p>Parametric filename for the Meridional Wind Stress datasets before the spinup-time (if sbc_iformulat=1). Parameters: YYYY(p)MM(p)DD(p),YYYY(i)MM(i)DD(i),YYYY(i-1)MM(i-1)DD(i-1),YYYY(i+1)MM(i+1)DD(i+1).</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: usr</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">fileAtmMesh_filebase_qtot</code></div>
+    <div class="col-8 pr-0"><p>Parametric filename for the Total Heat Flux datasets before the spinup-time (if sbc_iformulat=1). Parameters: YYYY(p)MM(p)DD(p),YYYY(i)MM(i)DD(i),YYYY(i-1)MM(i-1)DD(i-1),YYYY(i+1)MM(i+1)DD(i+1).</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: usr</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">fileAtmMesh_filebase_qsr</code></div>
+    <div class="col-8 pr-0"><p>Parametric filename for the Solar Radiation Penetration datasets before the spinup-time (if sbc_iformulat=1). Parameters: YYYY(p)MM(p)DD(p),YYYY(i)MM(i)DD(i),YYYY(i-1)MM(i-1)DD(i-1),YYYY(i+1)MM(i+1)DD(i+1).</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: usr</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">fileAtmMesh_filebase_emp</code></div>
+    <div class="col-8 pr-0"><p>Parametric filename for the Mass Flux Exchanged datasets before the spinup-time (if sbc_iformulat=1). Parameters: YYYY(p)MM(p)DD(p),YYYY(i)MM(i)DD(i),YYYY(i-1)MM(i-1)DD(i-1),YYYY(i+1)MM(i+1)DD(i+1).</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: usr</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">fileAtmMesh_filebase_tempS</code></div>
+    <div class="col-8 pr-0"><p>Parametric filename for the Surface Temperature datasets before the spinup-time (if sbc_iformulat=1). Parameters: YYYY(p)MM(p)DD(p),YYYY(i)MM(i)DD(i),YYYY(i-1)MM(i-1)DD(i-1),YYYY(i+1)MM(i+1)DD(i+1).</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: usr</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">fileAtmMesh_filebase_salS</code></div>
+    <div class="col-8 pr-0"><p>Parametric filename for the Surface Salinity datasets before the spinup-time (if sbc_iformulat=1). Parameters: YYYY(p)MM(p)DD(p),YYYY(i)MM(i)DD(i),YYYY(i-1)MM(i-1)DD(i-1),YYYY(i+1)MM(i+1)DD(i+1).</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: usr</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">fileAtmMesh_filebase_umid</code></div>
+    <div class="col-8 pr-0"><p>Parametric filename for the Air Umidity datasets before the spinup-time (if sbc_iformulat=1). Parameters: YYYY(p)MM(p)DD(p),YYYY(i)MM(i)DD(i),YYYY(i-1)MM(i-1)DD(i-1),YYYY(i+1)MM(i+1)DD(i+1).</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: usr</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">fileAtmMesh_filebase_radLW</code></div>
+    <div class="col-8 pr-0"><p>Parametric filename for the Long Wave Radiation datasets before the spinup-time (if sbc_iformulat=1). Parameters: YYYY(p)MM(p)DD(p),YYYY(i)MM(i)DD(i),YYYY(i-1)MM(i-1)DD(i-1),YYYY(i+1)MM(i+1)DD(i+1).</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: usr</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">fileAtmMesh_filebase_radSW</code></div>
+    <div class="col-8 pr-0"><p>Parametric filename for the Short Wave Radiation datasets before the spinup-time (if sbc_iformulat=1). Parameters: YYYY(p)MM(p)DD(p),YYYY(i)MM(i)DD(i),YYYY(i-1)MM(i-1)DD(i-1),YYYY(i+1)MM(i+1)DD(i+1).</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: usr</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">fileAtmMesh_filebase_snow</code></div>
+    <div class="col-8 pr-0"><p>Parametric filename for the Solid Precipitation datasets before the spinup-time (if sbc_iformulat=1). Parameters: YYYY(p)MM(p)DD(p),YYYY(i)MM(i)DD(i),YYYY(i-1)MM(i-1)DD(i-1),YYYY(i+1)MM(i+1)DD(i+1).</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: usr</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">fileAtmMesh_lcompression</code></div>
+    <div class="col-8 pr-0"><p>(=True) if the datasets you want to download are gzip compressed files (*.gz).</p>
+    <p><code>Type</code>: bool &nbsp; <code>Ref.Value</code>: False</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">fileAtmMesh_llonFlip</code></div>
+    <div class="col-8 pr-0"><p>(=True) if the longitude coord. is in the 0 to 360 range (=False) if longitude is in -180:+180 range.</p>
+    <p><code>Type</code>: bool &nbsp; <code>Ref.Value</code>: False</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">fileAtmMesh_llatInv</code></div>
+    <div class="col-8 pr-0"><p>(=True) if the dataset contains latitude decreasing through the pole.</p>
+    <p><code>Type</code>: bool &nbsp; <code>Ref.Value</code>: True</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">fileAtmMesh_lkeepSrcFull</code></div>
+    <div class="col-8 pr-0"><p>(=True) if you want to keep in your disk the downloaded uncutted datasets.</p>
+    <p><code>Type</code>: bool &nbsp; <code>Ref.Value</code>: True</p></div>
+</div>
+
+<h3 id="section-set_datadownlatmmesh_varname"><strong>Section set_dataDownlAtmMesh_varName</strong></h3>
+<p>This section of the JSON file contains the parameters for the VARIABLE-NAMEs of the input atmospheric meshmask datasets.</p>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">srcDimAtmMesh_lon</code></div>
+    <div class="col-8 pr-0"><p>Name of the dimension for the longitude.</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: lon</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">srcDimAtmMesh_lat</code></div>
+    <div class="col-8 pr-0"><p>Name of the dimension for the latitude.</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: lat</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">srcDimAtmMesh_time</code></div>
+    <div class="col-8 pr-0"><p>Name of the dimension for the time.</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: time</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">srcCrdAtmMesh_lon</code></div>
+    <div class="col-8 pr-0"><p>Name of the coordinate variable containing the longitude.</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: lon</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">srcCrdAtmMesh_lat</code></div>
+    <div class="col-8 pr-0"><p>Name of the coordinate variable containing the latitude.</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: lat</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">srcCrdAtmMesh_time</code></div>
+    <div class="col-8 pr-0"><p>Name of the variable containing time coordinate.</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: time</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">srcVarAtmMesh_mask</code></div>
+    <div class="col-8 pr-0"><p>Name of the variable containing the Land Sea Mask (if sbc_iformulat=0,2).</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: LSM</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">srcVarAtmMesh_lont</code></div>
+    <div class="col-8 pr-0"><p>Name of the variable containing longitude coordinate of T-points (if sbc_iformulat=1).</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: NOTUSED</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">srcVarAtmMesh_lonu</code></div>
+    <div class="col-8 pr-0"><p>Name of the variable containing longitude coordinate of U-points (if sbc_iformulat=1).</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: NOTUSED</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">srcVarAtmMesh_lonv</code></div>
+    <div class="col-8 pr-0"><p>Name of the variable containing longitude coordinate of V-points (if sbc_iformulat=1).</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: NOTUSED</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">srcVarAtmMesh_latt</code></div>
+    <div class="col-8 pr-0"><p>Name of the variable containing latitude coordinate of T-points (if sbc_iformulat=1).</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: NOTUSED</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">srcVarAtmMesh_latu</code></div>
+    <div class="col-8 pr-0"><p>Name of the variable containing latitude coordinate of U-points (if sbc_iformulat=1).</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: NOTUSED</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">srcVarAtmMesh_latv</code></div>
+    <div class="col-8 pr-0"><p>Name of the variable containing latitude coordinate of V-points (if sbc_iformulat=1).</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: NOTUSED</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">srcVarAtmMesh_maskt</code></div>
+    <div class="col-8 pr-0"><p>Name of the variable containing the Land Sea Mask of T-points (if sbc_iformulat=1).</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: NOTUSED</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">srcVarAtmMesh_masku</code></div>
+    <div class="col-8 pr-0"><p>Name of the variable containing the Land Sea Mask of U-points (if sbc_iformulat=1).</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: NOTUSED</p></div>
+</div>
+<div class="row mx-0">
+    <div class="col-3 pl-0"><code class="mycode">srcVarAtmMesh_maskv</code></div>
+    <div class="col-8 pr-0"><p>Name of the variable containing the Land Sea Mask of V-points (if sbc_iformulat=1).</p>
+    <p><code>Type</code>: string &nbsp; <code>Ref.Value</code>: NOTUSED</p></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2020 - 2024 <a href="https://github.com/FranzTr/test_doc"  target="_blank" rel="noopener">SURF Team</a>
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "search.suggest", "search.highlight", "search.share", "content.tabs.link", "content.code.annotation", "content.code.copy", "content.action.view"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.caa56a14.min.js"></script>
+      
+        <script src="../assets/js/extra.js"></script>
+      
+    
+  </body>
+</html>
