@@ -1,0 +1,1666 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="SURF-NEMO platform documentation">
+      
+      
+        <meta name="author" content="SURF Team">
+      
+      
+        <link rel="canonical" href="https://franztr.github.io/test_doc/1.1/ch6_quick-start-guide/">
+      
+      
+        <link rel="prev" href="../ch5_input-output-model-datasets/">
+      
+      
+        <link rel="next" href="../appA_reference-configuration/">
+      
+      
+      <link rel="icon" href="../assets/img/surflogo_small.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.7">
+    
+    
+      
+        <title>Getting Started with SURF-NEMO - SURF-NEMO USER GUIDE</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.f2e4d321.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/css/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#getting-started-with-surf-nemo" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="SURF-NEMO USER GUIDE" class="md-header__button md-logo" aria-label="SURF-NEMO USER GUIDE" data-md-component="logo">
+      
+  <img src="../assets/img/surflogo_small.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SURF-NEMO USER GUIDE
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Getting Started with SURF-NEMO
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/FranzTr/test_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    FranzTr/mkdocs-surf
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="SURF-NEMO USER GUIDE" class="md-nav__button md-logo" aria-label="SURF-NEMO USER GUIDE" data-md-component="logo">
+      
+  <img src="../assets/img/surflogo_small.png" alt="logo">
+
+    </a>
+    SURF-NEMO USER GUIDE
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/FranzTr/test_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    FranzTr/mkdocs-surf
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Welcome
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch1_introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch2_work-flow-of-the-SURF-NEMO-platform/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Workflow of the SURF-NEMO platform
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch3_user-configuration-file-preprocessing-sections/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    User Configuration File - Preprocessing Sections
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch4_user-configuration-file-postprocessing-sections/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    User Configuration File - Postprocessing Sections
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch5_input-output-model-datasets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Input/Output Model Datasets
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Getting Started with SURF-NEMO
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started with SURF-NEMO
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#download-and-install-surf-virtual-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      Download and Install SURF Virtual Machine
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Download and Install SURF Virtual Machine">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#disk-partitions-mounted-on-the-surf-virtual-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disk Partitions mounted on the SURF Virtual Machine
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changing-configuration-on-the-surf-virtual-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changing Configuration on the SURF Virtual Machine
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#download-and-install-surf-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Download and Install SURF packages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compiling-the-source-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compiling the source code
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-the-case-study-gulf-of-taranto" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running the case study: Gulf of Taranto
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post-processing-the-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      Post-processing the results
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Post-processing the results">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#visualizing-the-results-with-ncview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visualizing the results with Ncview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analyzing-and-visualizing-results-using-ncar-graphic-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analyzing and Visualizing results using NCAR graphic packages
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#make-a-new-experiments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Make a new experiments
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiple-downscaling-experiments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multiple downscaling experiments
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    APPENDIX
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            APPENDIX
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appA_reference-configuration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reference Configuration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appB_scratch-partition-and-its-directory-structures/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scratch Partition and its directory structures
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appC_linux-root-partition-and-the-installed-packages/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linux Root Partition and the installed packages
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appD_release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appE_bibliography/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bibliography
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#download-and-install-surf-virtual-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      Download and Install SURF Virtual Machine
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Download and Install SURF Virtual Machine">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#disk-partitions-mounted-on-the-surf-virtual-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disk Partitions mounted on the SURF Virtual Machine
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changing-configuration-on-the-surf-virtual-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changing Configuration on the SURF Virtual Machine
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#download-and-install-surf-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Download and Install SURF packages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compiling-the-source-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compiling the source code
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-the-case-study-gulf-of-taranto" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running the case study: Gulf of Taranto
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post-processing-the-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      Post-processing the results
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Post-processing the results">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#visualizing-the-results-with-ncview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visualizing the results with Ncview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analyzing-and-visualizing-results-using-ncar-graphic-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analyzing and Visualizing results using NCAR graphic packages
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#make-a-new-experiments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Make a new experiments
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiple-downscaling-experiments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multiple downscaling experiments
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+    
+      
+    
+    <a href="https://github.com/FranzTr/test_doc/raw/main/docs/ch6_quick-start-guide.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5 5 5 0 0 1 5-5 5 5 0 0 1 5 5 5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5Z"/></svg>
+    </a>
+  
+
+
+<h1 id="getting-started-with-surf-nemo"><strong>Getting Started with SURF-NEMO</strong></h1>
+<div style="text-align: justify">
+This chapter describes how you can quickly get started with the SURF platform. We show how to download and install the SURF Virtual Machine and all the SURF packages. We describe how to compile (if needed) the source codes.
+We present how to execute a case study (template) experiment in the Gulf of Taranto and view the results.
+Finally we show how the user-configuration file of a template experiment can be modified in order to
+execute and analysis new experiments.
+The template experiment makes it easier to run the model without detailed knowledge of the underlying
+scientific basis. Only a limited number of default values need to be changed for most applications.
+A more specific scientific background is required if for example, the user intends to perform experiments with different turbulence or numerical schemes or with alternative settings of model parameters.
+It is then recommended to read first the NEMO Model Description document and relative article.
+See also the video tutorials available online <a href="https://www.surf-platform.org/tutorial.php" target="_blank">here</a> explain the basic features of the SURF platform and designed for beginners who want to learn SURF step by step.
+</div>
+
+<h2 id="download-and-install-surf-virtual-machine"><strong>Download and Install SURF Virtual Machine</strong></h2>
+<div style="text-align: justify">
+The SURF platform will be provided as a Virtual Machine (VM). It is packaged and distributed as a ZIP Compressed Archive file (with a .zip extension).
+The general scheme adopted to manage the versions provides that the releases contain in the name indications of the version in the format:
+
+<pre><code class="language-bash">surf_vm_VERSION.zip
+</code></pre>
+
+where VERSION is a number (e.g. surf_vm_1.01.zip for the current version). The instructions below explain how to download, install and configure the SURF VM in Oracle VirtualBox
+
+<div class="row mx-0">
+  <div class="col-6 ps-0">
+    <ul>
+        <li>Navigate to <a target="_blank" href="https://www.virtualbox.org/">https://www.virtualbox.org/</a> and click on <em>Downloads</em> button.
+        Choose the <code>VirtualBox base package</code> (version &gt;=6) corresponding to the host
+        operating system of your computer (i.e. Windows, Mac, Linux).
+        Save the corresponding file on your computer, double-click it to open it, and follow the installation instructions.
+        </li>
+    </ul>
+  </div>
+  <div class="col-6 pr-0">
+      <figure id="fig-vm-install0" class="figure text-center">
+          <a href="../assets/img/VM_install_VitualBoxsite_v2.png">
+            <img src="../assets/img/VM_install_VitualBoxsite_v2.png" alt="../assets/img/VM_install_VitualBoxsite_v2.png" width="100%">
+          </a>
+          <figcaption class="figurenum">Downloads VirtualBox base package.</figcaption>
+      </figure>
+  </div>
+</div>
+
+<div class="row mx-0">
+  <div class="col-6 ps-0">
+    <ul>
+      <li>In addition to the base package, download also the <code>Extension Packs</code>.
+          This package provides additional functionality to the base package, such as virtual USB device, remote desktop support, ecc.
+          To install this extension, simply double-click on the package file and follow the installation instructions.
+          Please install the same version extension pack as your installed version of the VirtualBox base package.
+      </li>
+    </ul>
+  </div>
+<div class="col-6 pr-0">
+    <!-- <div class="d-flex justify-content-center"> -->
+      <figure id="fig-vm-install0" class="figure text-center">
+          <a href="../assets/img/VM_install_VirtualBoxExtentionPacks.png">
+            <img src="../assets/img/VM_install_VirtualBoxExtentionPacks.png" alt="../assets/img/VM_install_VirtualBoxExtentionPacks.png" width="100%">
+          </a>
+          <figcaption class="figurenum">Downloads VirtualBox Extension Packs.</figcaption>
+      </figure>
+    <!-- </div> -->
+  </div>
+</div>
+
+<div class="row mx-0">
+  <div class="col-6 ps-0">
+    <ul>
+        <li>
+          Download the current version (v1.01) of the SURF virtual machine from
+          <a href="https://www.surf-platform.org/download.php" target="_blank">SURF web-page</a>.
+          In the virtual machines is installed the Debian GNU/Linux 8.11 operating system.
+          The Guest Additions have been also installed to optimize the guest operating system for better performance and usability.
+          Extract than the package in your VirtualBox directory which Oracle VM VirtualBox creates in the current system user's home directory
+          (i.e. <code>/Users/USERNAME/VirtualBox VMs/</code> for Mac user).
+          ```bash
+          unzip surf_1.01.zip
+          ```
+        </li>
+    </ul>
+  </div>
+<div class="col-6 pr-0">
+    <!-- <div class="d-flex justify-content-center"> -->
+      <figure id="fig-vm-install1" class="figure text-center">
+          <a href="../assets/img/VM_install_downlVMsurf.png">
+            <img src="../assets/img/VM_install_downlVMsurf.png" alt="../assets/img/VM_install_downlVMsurf.png" width="100%">
+          </a>
+          <figcaption class="figurenum">Downloads SURF Virtual Machine.</figcaption>
+      </figure>
+    <!-- </div> -->
+  </div>
+</div>
+
+<div class="row mx-0">
+  <div class="col-6 ps-0">
+    <ul>
+        <li>Open the VirtualBox software. From the menu, choose <em>Machine</em> &gt; <em>add</em> and navigate to the file <code>surf.vbox</code>.
+        This file is an XML file that contains settings of the Machine.
+        This will add the Virtual Machine <code>surf</code> to the list of Virtual Machine</li>
+    </ul>
+  </div>
+  <div class="col-6 pr-0">
+    <!-- <div class="d-flex justify-content-center"> -->
+      <figure id="fig-vm-install2" class="figure text-center">
+          <a href="../assets/img/VM_install_openVMsurf.png">
+            <img src="../assets/img/VM_install_openVMsurf.png" alt="../assets/img/VM_install_openVMsurf.png" width="100%">
+          </a>
+          <figcaption class="figurenum">Add SURF-VM in VirtualBox.</figcaption>
+      </figure>
+    <!-- </div> -->
+  </div>
+</div>
+
+<div class="row mx-0">
+  <div class="col-6 ps-0">
+    <ul>
+      <li>To start the VM surf, you can double-click on its entry in the list in the VirtualBox Manager window or select its entry and press the <em>Start</em> button at the top of the window. A window opens.
+        The VM Login should look like the
+        <a class="reference internal" href="#fig-vm-install3">
+            <span class="std std-numref">figure 6.5</span>
+        </a>.
+        In the login dialogue box enter:
+        <ul>
+          <li><em>surf</em> as login</li>
+          <li><em>surf2019</em> as an initial password</li>
+        </ul>
+        You are now logged into the VM.
+      </li>
+    </ul>
+  </div>
+  <div class="col-6 pr-0">
+    <!-- <div class="d-flex justify-content-center"> -->
+        <figure id="fig-vm-install3" class="figure text-center">
+          <a href="../assets/img/VM_install_login.png">
+              <img src="../assets/img/VM_install_login.png" alt="../assets/img/VM_install_login.png" width="100%">
+          </a>
+          <figcaption class="figurenum">Start SURF-VM.</figcaption>
+        </figure>
+    <!-- </div> -->
+  </div>
+</div>
+
+</div>
+
+<h3 id="disk-partitions-mounted-on-the-surf-virtual-machine"><strong>Disk Partitions mounted on the SURF Virtual Machine</strong></h3>
+<div style="text-align: justify">
+The SURF Virtual Machine package contains two VDI (VirtualBox Disk Image) files:
+<ul class="simple">
+  <li><code>surf.vdi</code> containing the Debian GNU/Linux operating system (version 10.3)</li>
+  <li><code>surf_scratch.vdi</code> thought to contain source code files, datasets sample and experiments.</li>
+</ul>
+From the guest operating system you can see the list of partitions by typing the following command:
+
+<pre><code class="language-bash">sudo fdisk -l
+</code></pre>
+
+It is divided into two main partitions:
+<ul class="simple">
+  <li>the disk <code>/dev/sda</code> "mounted" as filesystems to the root directory <code>/</code></li>
+  <li>the disk <code>/dev/sdb</code> "mounted" in the directory <code>/scratch</code>.</li>
+</ul>
+Optionally you can mount other physical hard disks with VirtualBox (see the <a href="https://www.virtualbox.org/manual/ch05.html" target="_blank">VirtualBox Manual</a> for details).
+VirtualBox has the ability to <b> mount a shared folder between host and guest</b>
+in order to access files of your host system from within the guest system. There are a few steps involved:
+<div class="row mx-0">
+  <div class="col-6 ps-0">
+      <ul>
+        <li>Shut down the virtual OS before you can edit settings.</li>
+        <li>Select the surf VM in the VirtualBox Manager and click Settings.</li>
+        <li>Select Shared Folders, and click the Plus button to add a new shared folder. Specify the host folder you want to share.</li>
+        <li>Select auto-mount and then click OK.</li>
+        <li>You can now re-start the VM surf. The shared folder is mounted into the /media directory, along with the prefix "sf_".</li>
+      </ul>
+  </div>
+  <div class="col-6 pr-0">
+      <!-- <div class="d-flex justify-content-center"> -->
+        <figure id="fig-vm-install3" class="figure text-center">
+            <a href="../assets/img/VM_install_sharefolder.png">
+              <img src="../assets/img/VM_install_sharefolder.png" alt="../assets/img/VM_install_sharefolder.png" width="100%">
+            </a>
+            <figcaption class="figurenum">Mount shared folders.</figcaption>
+        </figure>
+      <!-- </div> -->
+  </div>
+</div>
+
+</div>
+
+<h3 id="changing-configuration-on-the-surf-virtual-machine"><strong>Changing Configuration on the SURF Virtual Machine</strong></h3>
+<div style="text-align: justify">
+
+By default, the VM surf is configurated as in table <a class="reference internal" href="#tab-configvm"> <span class="std std-numref">Table 6.1</span> </a>.
+You can keep all defaults parameters or if it is not adequate for your application you can change settings.
+To change the configuration you need to shut down the virtual OS before you can edit settings.
+
+<div class="row mx-0">
+  <div class="col-6 ps-0">
+    <ul>
+      <li>Select the surf VM in the VirtualBox Manager, right-click it and choose <em>Setting</em>.</li>
+      <li>increase/decrease the number of cores based on your performance desires.</li>
+      <li>increase/decrease the number of GB of RAM allocated to your VM according to the size of your computational domain.</li>
+      <li>increase/decrease the video memory and scale factor of your screen</li>
+    </ul>
+  </div>
+  <div class="col-6 pr-0">
+      <div class="d-flex justify-content-center">
+        <figure id="fig-vm-install4" class="figure text-center">
+            <a href="../assets/img/VM_install4.png">
+              <img src="../assets/img/VM_install4.png" alt="../assets/img/VM_install4.png" width="100%">
+            </a>
+            <figcaption class="figurenum">Change VM configurations.</figcaption>
+        </figure>
+      </div>
+  </div>
+</div>
+
+If you want to add more storage space to a VM you can also expande the virtual hard disk. There are a few steps involved:
+
+<div class="row mx-0">
+  <div class="col-6 ps-0">
+    <ul>
+        <li> With the VM Power off, open a terminal and move to the location of the surf_scratch.vdi file that you want to resize,
+        </li>
+        <li> At the terminal prompt, type the command:
+        ```bash
+        VBoxManage modifyhd surf_scratch.vdi
+         --resize SIZE_MB
+        ```
+        </li>
+    </ul>
+  </div>
+  <div class="col-6 pr-0">
+    <div class="d-flex justify-content-center">
+        <figure id="fig-vm-install5" class="figure text-center">
+          <a href="../assets/img/VM_install5.png">
+              <img src="../assets/img/VM_install5.png" alt="../assets/img/VM_install5.png" width="100%">
+          </a>
+          <figcaption class="figurenum">Enlarge the virtual disk.</figcaption>
+        </figure>
+    </div>
+  </div>
+</div>
+
+<div class="row mx-0">
+  <div class="col-6 ps-0">
+    <ul>
+        <li> Restart the SURF VM and open the GParted application from the Application Menu </li>
+        <li> Select the /dev/sdb partition (an unlocated drive space is now available). Resize to the unalocated area</li>
+    </ul>
+  </div>
+  <div class="col-6 pr-0">
+    <!-- <div class="d-flex justify-content-center"> -->
+        <figure id="fig-vm-install5" class="figure text-center">
+          <a href="../assets/img/VM_install5.png">
+              <img src="../assets/img/VM_install5.png" alt="../assets/img/VM_install5.png" width="100%">
+          </a>
+          <figcaption class="figurenum">Enlarge the virtual disk.</figcaption>
+        </figure>
+    <!-- </div> -->
+  </div>
+</div>
+
+<table class="table table-hover" id="tab-configvm">
+  <caption class="text-center"> Table 6.1 Virtual Machine Summary Fields. </caption>
+  <thead>
+  <tr>
+    <th>Parameter</th>
+    <th>Description</th>
+    <th>Values</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Name</td>
+    <td>Name given the VM</td>
+    <td>surf</td>
+  </tr>
+  <tr>
+    <td>Guest OS</td>
+    <td>Operating system running on this VM</td>
+    <td>Debian Linux</td>
+  </tr>
+  <tr>
+    <td>Memory</td>
+    <td>Amount of memory available to this VM</td>
+    <td>2 [GB]</td>
+  </tr>
+  <tr>
+    <td>Cores</td>
+    <td>Number of CPU cores being used by this VM</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td>Disk Capacity</td>
+    <td>Total disk capacity available to this VM</td>
+    <td>40 [GB]</td>
+  </tr>
+  <tr>
+    <td>Network Adapters</td>
+    <td>Number of network adapters available to this VM</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td>IP Address</td>
+    <td>IP address assigned to the VM</td>
+    <td>x</td>
+  </tr>
+  </tbody>
+</table>
+
+</div>
+
+<h2 id="download-and-install-surf-packages"><strong>Download and Install SURF packages</strong></h2>
+<div style="text-align: justify">
+Once logged in, open a new terminal window and go to the directory <code>/scratch</span></code>.
+The scratch directory follows the directory structure as shown in <a href="#fig-surftree">Fig. B.1</a>. The VM you have installed does not contain the SURF
+packages (source codes and static datasets) and you need to download and install them. The SURF packages are
+packaged and distributed as a GZIP Compressed Tar Archive file (with a .tar.gz extension). The general scheme
+adopted to manage the versions provides that the releases contain in the name indications of the version in
+the format:
+
+<pre><code class="language-bash">packageName_&lt;VERSION&gt;.tar.gz
+</code></pre>
+
+where &ltVERSION&gt is a number (e.g. <i>surf_nemo_1.01.tar.gz</i> for the current version of the surf_nemo package).
+The instructions below explain how to install the package in the VM:
+<ul>
+    <li>
+      Once logged in the VM surf, download the current version of the SURF-NEMO (surf_nemo_1.01.tar.gz)
+      and SURF-DATASETS (surf_datasets_1.01.tar.gz) packages directly from the
+      <a class="reference external" href="https://www.surf-platform.org">SURF web-page</a>
+      and save it in the directory <code>/scratch/surf/surf_install/releases/</code>
+      (for simplicity, we abbreviate this location as <code>$SURF_RELEASES</code>).
+    </li>
+    <li>
+      Go to the directory <code>$SURF_RELEASES</code> and run the installation bash script
+      <code>install.sh</code> followed by the package name. For the SURF-NEMO packages type:
+      ```bash
+      cd $SURF_RELEASES ; install.sh surf_nemo_1.01.tar.gz
+      ```
+      For the SURF-DATASETS packages type:
+      ```bash
+      cd $SURF_RELEASES ; install.sh surf_datasets_1.01.tar.gz
+      ```
+      The installation process will extract the archive in the directory <code>/scratch/surf/surf_nemo/</code> and
+      <code>/scratch/surf/surf_datasets/</code>, respectively, and will create a symbolic link <code>current</code> in this directory
+      that points to the extracted folder (for simplicity, we abbreviate this location as <code>$SURF_NEMO</code>, <code>$SURF_DATASETS</code>, respectively).
+    </li>
+</ul>
+For a detailed description of the directory structure and contents of each package refer to the <a href="#appB_Scratch-Partition-and-its-directory-structures">Appendix B</a>.
+</div>
+
+<h2 id="compiling-the-source-code"><strong>Compiling the source code</strong></h2>
+<div style="text-align: justify">
+
+After the installation of the SURF-NEMO package is finished, you need to compile the source codes in order
+to create the executable files needed to perform specific tasks. The executable files should not be recreated
+unless you need to modify the source code. The compilation is performed with the Unix/Linux make utility
+using the following tools: (1) fortran 90 compiler, (2) C-preprocessor cpp, (3) a compiled MPI library for
+simulations in parallel mode. (4) a compiled netCDF library to read and write data in portable netCDF
+format. All these tools are already present and compiled in the SURF platform.
+To compile the source codes go to the directory <code>/scratch/surf/surf_nemo/current/scripts/</code> and run the compilation bash script <code>compile.sh</code> followed by the package name (or by the word 'all' to compile all the packages):
+
+
+<pre><code class="language-bash">cd /scratch/surf/surf_nemo/current/scripts; ./compile_codes.sh all
+</code></pre>
+
+
+Compilation could take a few minutes and it will create the executable files for each program present in the SURF-NEMO package.
+
+</div>
+
+<h2 id="running-the-case-study-gulf-of-taranto"><strong>Running the case study: Gulf of Taranto</strong></h2>
+<div style="text-align: justify">
+
+As case study we implement the SURF platform in the Gulf of Taranto in the northern Ionian Sea (fig xx).
+The nesting simulation starts on 5 October 2014 at 00:00 and run until 7 October 2014 at 24:00.
+In order to execute this case study experiment, you can follow these steps:
+
+<ul>
+    <li>
+      Download the input datasets (gulfTaranto_20141005.tar.gz) of this case study directly from the web-repository
+      (<a class="reference external" href="https://www.surf-platform.org">https://www.surf-platform.org</a>)
+      and extract it in the directory <code>/scratch/surf/indata_offline/</code>
+      ```bash
+      tar -zxvf gulfTaranto_20141005.tar.gz
+      ```
+      Note If you want to change the local repository path to some other location of your choice make sure to change the path in the configuration file.
+    </li>
+    <li>
+      Create a new folder in the directory <code>/scratch/from_GUI/</code> and let's call it gulfTaranto_20141005.
+      This is the Experiment ID name which uniquely identifies the experiment.
+      ```bash
+      cd /scratch/from_GUI/; mkdir gulfTaranto_20141005
+      ```
+    </li>
+    <li>
+      Copy the template configuration file <code>/scratch/surf/surf_nemo/current/setParFree.json</code> in the
+      directory <code>/scratch/from_GUI/gulfTaranto_20141005/</code> which contains the configuration for this case study.
+      ```bash
+      necd; cp setParFree.json /scratch/from_GUI/gulfTaranto_20141005/
+      ```
+    </li>
+    <li>
+      After that, from the directory <code>/scratch/surf/surf_nemo/current/scripts/</code>, you just need to execute
+      the Julia script <code>run_exp.jl</code> followed by the experiment ID <code>gulfTaranto_20141005</code>
+      ```bash
+      julia run_exp.jl gulfTaranto_20141005
+      ```
+      This will create the folder gulfTaranto_20141005 in the directory <code>/scratch/surf/experiments/</code>
+      with a directory tree as in fig.x.1 (refer to the <a href="#appB_Scratch-Partition-and-its-directory-structures">Appendix B</a> for more details)
+    </li>
+</ul>
+You can activate/deactivate specific tasks by setting logical parameters to True/False
+in the section <code>set_lrun</code> of the configuration file <code>setParFree.json</code>
+<div class="row mx-0">
+  <div class="col-6 ps-0">
+      <code>lrun_childMeshmask</code> to  enable the execution of the CHILD-MESHMASK GENERATION task. <br>
+      <code>lrun_regridPreAtm</code> to enable the execution of the ATMOSPHERIC-DATA-REGRIDDING task. <br>
+      <code>lrun_regridPreOceIC</code> to enable the execution of the OCEAN-IC-DATA-REGRIDDING task. <br>
+      <code>lrun_regridPreOceBC</code> to enable the execution of the OCEAN-BC-DATA-REGRIDDING task. <br>
+      <code>lrun_regridPreWeights</code> if you want to compute (=True) or just copy (=False) the WEIGHT-FILEs for REMAPPING in the Regridding phase. <br>
+      <code>lrun_ocean</code> to enable the execution of the NEMO code.
+
+  </div>
+
+  <div class="col-6 pr-0" style="font-size:16px">
+    <div class="highlight-JSON">
+<pre><code class="mycode">{
+&quot;id&quot;:&quot;A001&quot;,&quot;title&quot;:&quot;set_lrun&quot;,
+"items": [
+      {"name": "lrun_childMeshMask",
+      "value": "True"
+      },
+      {"name": "lrun_regridPreAtm",
+      "value": "True"
+      },
+      {"name": "lrun_regridPreOceIC",
+      "value": "True"
+      },
+      {"name": "lrun_regridPreOceBC",
+      "value": "True"
+      },
+      {"name": "lrun_regridPreWeights",
+      "value ": "True"
+      },
+      {"name": "lrun_ocean",
+      "value": "True"
+      }
+   ]
+}
+</code></pre>
+    </div>
+  </div>
+
+</div>
+
+</div>
+
+<h2 id="post-processing-the-results"><strong>Post-processing the results</strong></h2>
+<div style="text-align: justify">
+
+The surf package is provided together with open source tools for data visualization and post-processing your data.
+You will find the free software packages NcView with a graphical user interface
+and a suite of procedure using NCAR Graphics package with NCL and Python interface you can call from Command Line.
+However, it is very well possible to use other (free or commercial)
+graphic software such as Pynoply or several scripting languages such as Julia, IDL, Matlab, as long
+as they can read the netCDF format.
+
+</div>
+
+<h3 id="visualizing-the-results-with-ncview"><strong>Visualizing the results with Ncview</strong></h3>
+<div style="text-align: justify">
+
+Ncview is a tool for visualizing netCDF data files. It is very easy to use, because of its graphical user interface.
+However, its possibilities are limited. Typically you would use ncview to get a quick and easy, push-button
+look at your netCDF files. You can view simple movies of the data, view along various dimensions, take a
+look at the actual data values, change colour maps, invert the data, etc.
+In order to start this program type ncview followed by the filename of the dataset you want to visualize,
+example type the following command:
+
+
+<pre><code class="language-bash">ncview SURF_1h_20141006_20141006_grid_T.nc
+</code></pre>
+
+
+An example of the user interface in NcView is given in figure <a href="#fig-ncview">Fig. 6.7</a>
+
+<div class="d-flex justify-content-center">
+  <figure id="fig-ncview" class="figure text-center">
+      <a href="../assets/img/ncview.png">
+        <img src="../assets/img/ncview.png" alt="../assets/img/ncview.png" width="100%">
+      </a>
+      <figcaption class="figurenum">Screenshot of using NcView.</figcaption>
+  </figure>
+</div>
+
+</div>
+
+<h3 id="analyzing-and-visualizing-results-using-ncar-graphic-packages"><strong>Analyzing and Visualizing results using NCAR graphic packages</strong></h3>
+<div style="text-align: justify">
+
+NCAR Graphics is a collection of graphics libraries that support the display of scientific data. One possible
+interface available for visualizing data with these libraries is with the NCAR Command Language (NCL),
+an open-source interpreted programming language, developed at NCAR and designed for the analysis and
+visualization of geoscientific data.
+The SURF-NEMO package include, as postprocessing, a suite of NCL functions to visualize the input/output
+datasets, compare the child/parent fields, compare the simulation result with in-situ or satellite datasets and
+convert datasets.
+
+<figure class="figure text-center">
+  <div class="d-flex justify-content-center">
+      <figure id="fig-test1-velxy">
+        <a href="../assets/img/velxy_z000_t035.png">
+            <img src="../assets/img/velxy_z000_t035.png" alt="../assets/img/velxy_z000_t035.png" width="100%">
+        </a>
+        <figcaption>(A) Surface current.</figcaption>
+      </figure>
+      <figure id="fig-test1-tempxy">
+        <a href="../assets/img/tempxy_z000_t035.png">
+            <img src="../assets/img/tempxy_z000_t035.png" alt="../assets/img/tempxy_z000_t035.png" width="100%">
+        </a>
+        <figcaption>(B) Surface temperature.</figcaption>
+      </figure>
+      <figure id="fig-test1-tempxz">
+        <a href="../assets/img/tempxz_y000_t035.png">
+            <img src="../assets/img/tempxz_y000_t035.png" alt="../assets/img/tempxz_y000_t035.png" width="100%">
+        </a>
+        <figcaption>(C) Cross-section of temperature.</figcaption>
+      </figure>
+  </div>
+  <figcaption class="figurenum">Example figure generated using NCAR graphic packages.</figcaption>
+</figure>
+
+In order to Post-processing the results of an existing experiment, you need to execute the Julia script
+<code>run_postProc.jl</code> followed by the experiment ID. Example for the case study experiment type the following command:
+
+
+<pre><code class="language-bash">julia run_postproc.jl gulfTaranto_20141005
+</code></pre>
+
+
+You can activate/deactivate specific tasks by setting logical parameters to True/False in the sections
+<code>set_lrun_post</code> and <code>set_visual_lplot</code> of the configuration file <code>setParFree.json</code>
+
+<div class="row mx-0">
+  <div class="col-6 ps-0">
+    <code>lrun_visDom</code> to  enable the plotting of the user-defined domains.<br>
+    <code>lrun_visIndata</code> to  enable the plotting of the Indata Bat, Atm, OceIC, OceBC fields.<br>
+    <code>lrun_visExtrapdata</code> to enable the plotting of the Extrapdata Atm, OceIC, OceBC fields.<br>
+    <code>lrun_visRegriddata</code> to enable the execution of the OCEAN-IC-DATA-REGRIDDING task.<br>
+    <code>lrun_visOutdata</code> to enable the execution of the OCEAN-BC-DATA-REGRIDDING task.<br>
+    <code>lrun_chlVSpar</code> if you want to compute (=True) or just copy (=False) the WEIGHT-FILEs for REMAPPING in the Regridding phase.<br>
+    <code>lrun_surfVSctd</code> enables the execution of the NEMO code.<br>
+    <code>lrun_surfVSsat</code> enables the execution of the NEMO code.<br>
+    <code>lrun_surfVSmooring</code> enables the execution of the NEMO code.<br>
+    <code>lrun_surfVSferrybox</code> enables the execution of the NEMO code.<br>
+  </div>
+  <div class="col-6 pr-0" style="font-size:16px">
+    <div class="highlight-JSON">
+<pre><code class="mycode">{
+  &quot;id&quot;:&quot;B000&quot;,&quot;title&quot;:&quot;set_lrun_post&quot;,
+  "items": [
+     {"name": "lrun_visDom",
+     "value": "True"
+     },
+     {"name": "lrun_visIndata",
+     "value": "True"
+     },
+     {"name": "lrun_visExtrapdata",
+     "value": "True"
+     },
+     {"name": "lrun_visRegriddata",
+     "value": "True"
+     },
+     {"name": "lrun_visOutdata",
+     "value ": "True"
+     },
+     {"name": "lrun_chlVSpar",
+     "value": "True"
+     },
+     {"name": "lrun_surfVSctd",
+     "value": "True"
+     },
+     {"name": "lrun_surfVSsat",
+     "value": "True"
+     },
+     {"name": "lrun_surfVSmooring",
+     "value": "True"
+     },
+     {"name": "lrun_surfVSferrybox",
+     "value": "True"
+     }
+  ]
+}
+</code></pre>
+    </div>
+  </div>
+</div>
+
+<div class="row mx-0">
+  <div class="col-6 ps-0">
+    <code>lplotMesh</code> to  enable plotting of the Child MeshMask fields.<br>
+    <code>lplotBat</code> to enable the plotting of the Bathymetry fields.<br>
+    <code>lplotAtm</code> to enable the plotting of the Atmospheric fields.<br>
+    <code>lplotOceIC</code> to enable the plotting of the Initial Condition Ocean fields.<br>
+    <code>lplotOceBC</code> to enable the plotting of the Open Boundary Condition Ocean fields.<br>
+    <code>lplotOceBCbdy</code> to enable the plotting of the Open Boundary Condition Ocean fields.<br>
+    <code>lplotOceOut</code> to enable the plotting of the Output Ocean fields.<br>
+  </div>
+  <div class="col-6 pr-0" style="font-size:16px">
+    <div class="highlight-JSON">
+
+<pre><code class="mycode">{
+   &quot;id&quot;:&quot;B001&quot;,&quot;title&quot;:&quot;set_visual_lplot&quot;,
+      "items": [
+      {"name": "lplotMesh",
+      "value": "True"
+      },
+      {"name": "lplotBat",
+      "value": "True"
+      },
+      {"name": "lplotAtm",
+      "value": "True"
+      },
+      {"name": "lplotOceIC",
+      "value": "True"
+      },
+      {"name": "lplotOceBC",
+      "value": "True"
+      },
+      {"name": "lplotOceBCbdy",
+      "value": "True"
+      },
+      {"name": "lplotOceOut",
+      "value": "True"
+      }
+   ]
+}
+</code></pre>
+
+    </div>
+
+  </div>
+
+</div>
+
+</div>
+
+<h3 id="make-a-new-experiments"><strong>Make a new experiments</strong></h3>
+<p>Let's assume you want to study the circulation of the Sermilik fjord in Greenland
+from 1 February 2017 at 00:00 to 7 February 2017 at 24:00 ... add more details.</p>
+<ul>
+  <li>
+      Choose the name of experiment ID (e.g. <code>greenlandFjord_20170201</code>) and create the folder
+      ```bash
+      cd /scratch/from_GUI/; mkdir greenlandFjord_20170201
+      ```
+  </li>
+  <li>
+      Copy the template configuration file <code>/scratch/surf/surf_nemo/current/setParFree.json</code> in the
+      directory <code>/scratch/from_GUI/greenlandFjord_20170201</code>
+      ```bash
+      cp /scratch/surf/surf_nemo/current/setParFree.json ./greenlandFjord_20170201/
+      ```
+  </li>
+  <li>
+      Modify the user configuration file <code>setParFree.json</code> according to your needs
+      <code class="mycode">
+        param1 = xxx <br>
+        param2 = xxx <br>
+        param3 = xxx <br>
+        param4 = xxx
+      </code>
+  </li>
+  <li>
+      From the directory <code>/scratch/surf/surf_nemo/current/scripts/</code>, execute
+      the Julia script <code>run_exp.jl</code> followed by the experiment ID <code>greenlandFjord_20170201</code>
+      ```bash
+      cd /scratch/surf/surf_nemo/current/scripts/;
+      julia run_exp.jl greenlandFjord_20170201
+      ```
+  </li>
+  <li>
+      After running the simulation, you can display the simulation results by using
+      the Julia script <code>run_postproc.jl</code> followed by the experiment ID <code>greenlandFjord_20170201</code>
+      ```bash
+      cd /scratch/surf/surf_nemo/current/scripts/;
+      julia run_postproc.jl greenlandFjord_20170201
+      ```
+  </li>
+</ul>
+<p>In principle you can simply use the template model and modify it to your needs, and not be too much
+concerned with the input files they create. But our advice is never to use the template model as black boxes.
+It is therefore important to understand how the codes work, which options they have and how their input
+files are structured.</p>
+<h3 id="multiple-downscaling-experiments"><strong>Multiple downscaling experiments</strong></h3>
+<p>SURF-NEMO package includes multiple nesting capability (i.e. consecutive nested models can be
+implemented with increasing grid resolutions).
+Let's assume you want to downscale from an existing experiment (e.g. from the template experiment
+<code>gulfTaranto_20141005</code>)
+in order to increase the spatial resolution to 800m ... add details.</p>
+<ul>
+  <li>
+      Go to the existing experiment directory
+      ```bash
+      cd /scratch/surf/experiments/gulfTaranto_20141005/
+      ```
+  </li>
+  <li>
+      Modify the user configuration file <code>setParFree.json</code> according to your needs
+      <code class="mycode">
+        param1 = xxx <br>
+        param2 = xxx <br>
+        param3 = xxx <br>
+        param4 = xxx
+      </code>
+  </li>
+  <li>
+      From the directory <code>/scratch/surf/experiments/gulfTaranto_20141005/code/ocean/scripts/</code>,
+      execute the Julia script <code>run_exp.jl</code> followed by the experiment ID <code>gulfTaranto_20141005</code>
+      ```bash
+      cd /scratch/surf/experiments/gulfTaranto_20141005/code/ocean/scripts/;
+      julia run_exp.jl gulfTaranto_20141005
+      ```
+  </li>
+  <li>
+      After running the simulation, you can display the simulation results by using the julia script
+      <code>run_postproc.jl</code> followed by the experiment ID <code>gulfTaranto_20141005</code>
+      ```bash
+      julia run_postproc.jl gulfTaranto_20141005
+      ```
+  </li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2020 - 2024 <a href="https://github.com/FranzTr/test_doc"  target="_blank" rel="noopener">SURF Team</a>
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "search.suggest", "search.highlight", "search.share", "content.tabs.link", "content.code.annotation", "content.code.copy", "content.action.view"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.caa56a14.min.js"></script>
+      
+        <script src="../assets/js/extra.js"></script>
+      
+    
+  </body>
+</html>

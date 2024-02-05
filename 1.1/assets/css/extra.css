@@ -1,0 +1,98 @@
+/* Definition styles */
+
+.alert-info {
+  background-image: -webkit-linear-gradient(top, #d9edf7 0%, #b9def0 100%);
+  background-image: linear-gradient(to bottom, #d9edf7 0%, #b9def0 100%);
+  background-repeat: repeat-x;
+  border-color: #9acfea;
+  color: black;
+  padding: 5px;
+}
+
+h2.doc-heading {
+  font-size: 1.5rem;
+}
+h3.doc-heading {
+  font-size: 1.4rem;
+}
+h4.doc-heading {
+  font-size: 1.3rem;
+}
+h5.doc-heading {
+  font-size: 1.2rem;
+}
+
+/* enumerate the headings (h1-h6) across site pages */
+body {
+  counter-reset: section subsection subsubsection;
+}
+
+h1#welcome-to-the-surf-nemo-user-guide {
+  counter-increment: section 1;
+  counter-reset: subsection 0;
+}
+h1#introduction {
+  counter-increment: section 2;
+  counter-reset: subsection 0;
+}
+h1#workflow-of-the-surf-nemo-platform {
+  counter-increment: section 3;
+  counter-reset: subsection 0;
+}
+h1#user-configuration-file-preprocessing-sections {
+  counter-increment: section 4;
+  counter-reset: subsection 0;
+}
+h1#user-configuration-file-postprocessing-sections {
+  counter-increment: section 5;
+  counter-reset: subsection 0;
+}
+h1#inputoutput-model-datasets {
+  counter-increment: section 6;
+  counter-reset: subsection 0;
+}
+h1#getting-started-with-surf-nemo {
+  counter-increment: section 7;
+  counter-reset: subsection 0;
+}
+
+h1 {
+  counter-increment: section 1;
+  counter-reset: subsection 0;
+}
+
+h1:before {
+  content: counter(section) ". ";
+}
+
+h2 {
+  counter-increment: subsection;
+  counter-reset: subsubsection 0;
+}
+
+h2:before {
+  content: counter(section) "." counter(subsection) " ";
+}
+
+h3:before {
+  counter-increment: subsubsection;
+  content: counter(section) "." counter(subsection) "." counter(subsubsection)
+    " ";
+}
+
+/* Element you want to override on bootstrap */
+a {
+  text-decoration: none !important;
+}
+
+.md-source {
+  color: white;
+}
+
+strong {
+  font-weight: bold !important;
+}
+
+h4 {
+  font-size: 0.8rem !important;
+}
