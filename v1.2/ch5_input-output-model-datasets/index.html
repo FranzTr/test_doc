@@ -1,0 +1,1923 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="SURF-NEMO platform documentation">
+      
+      
+        <meta name="author" content="SURF Team">
+      
+      
+        <link rel="canonical" href="https://franztr.github.io/test_doc/v1.2/ch5_input-output-model-datasets/">
+      
+      
+        <link rel="prev" href="../ch4_user-configuration-file-postprocessing-sections/">
+      
+      
+        <link rel="next" href="../ch6_quick-start-guide/">
+      
+      
+      <link rel="icon" href="../assets/img/surflogo_small.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.7">
+    
+    
+      
+        <title>Input/Output Model Datasets - SURF-NEMO USER GUIDE</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.f2e4d321.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/css/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#inputoutput-model-datasets" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              
+  You're not viewing the latest version.
+  <a href="../..">
+    <strong>Click here to go to latest.</strong>
+  </a>
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="SURF-NEMO USER GUIDE" class="md-header__button md-logo" aria-label="SURF-NEMO USER GUIDE" data-md-component="logo">
+      
+  <img src="../assets/img/surflogo_small.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SURF-NEMO USER GUIDE
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Input/Output Model Datasets
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/FranzTr/test_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    FranzTr/mkdocs-surf
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="SURF-NEMO USER GUIDE" class="md-nav__button md-logo" aria-label="SURF-NEMO USER GUIDE" data-md-component="logo">
+      
+  <img src="../assets/img/surflogo_small.png" alt="logo">
+
+    </a>
+    SURF-NEMO USER GUIDE
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/FranzTr/test_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    FranzTr/mkdocs-surf
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Welcome
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch1_introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch2_work-flow-of-the-SURF-NEMO-platform/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Workflow of the SURF-NEMO platform
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch3_user-configuration-file-preprocessing-sections/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    User Configuration File - Preprocessing Sections
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch4_user-configuration-file-postprocessing-sections/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    User Configuration File - Postprocessing Sections
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Input/Output Model Datasets
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Input/Output Model Datasets
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#input-datasets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Input Datasets
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Input Datasets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bathymetry-dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bathymetry Dataset
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coastline-dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      Coastline Dataset
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#initial-condition-datasets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Initial Condition Datasets
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lateral-open-boundary-condition-datasets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lateral Open Boundary Condition Datasets
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tidal-datasets-for-the-open-boundaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tidal Datasets for the open boundaries
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#atmospheric-forcing-datasets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Atmospheric Forcing Datasets
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#output-datasets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Output Datasets
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Output Datasets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#meshmask-dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      Meshmask dataset
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ocean-output-datasets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ocean Output Datasets
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restart-dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      Restart dataset
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch6_quick-start-guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started with SURF-NEMO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    APPENDIX
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            APPENDIX
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appA_reference-configuration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reference Configuration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appB_scratch-partition-and-its-directory-structures/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scratch Partition and its directory structures
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appC_linux-root-partition-and-the-installed-packages/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linux Root Partition and the installed packages
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appD_release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appE_bibliography/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bibliography
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#input-datasets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Input Datasets
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Input Datasets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bathymetry-dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bathymetry Dataset
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coastline-dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      Coastline Dataset
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#initial-condition-datasets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Initial Condition Datasets
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lateral-open-boundary-condition-datasets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lateral Open Boundary Condition Datasets
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tidal-datasets-for-the-open-boundaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tidal Datasets for the open boundaries
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#atmospheric-forcing-datasets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Atmospheric Forcing Datasets
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#output-datasets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Output Datasets
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Output Datasets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#meshmask-dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      Meshmask dataset
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ocean-output-datasets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ocean Output Datasets
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restart-dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      Restart dataset
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+    
+      
+    
+    <a href="https://github.com/FranzTr/test_doc/raw/main/docs/ch5_input-output-model-datasets.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5 5 5 0 0 1 5-5 5 5 0 0 1 5 5 5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5Z"/></svg>
+    </a>
+  
+
+
+<h1 id="inputoutput-model-datasets"><strong>Input/Output Model Datasets</strong></h1>
+<div style="text-align: justify">
+
+In order to execute the SURF-NEMO package, the user has to provide several input datasets. These include the bathymetry datasets containing the seafloor elevation, the coastline datasets delineating borders between land and sea areas, the initial condition dataset containing the initial values of model-predicted variables and the boundary condition datasets containing the values of the variables needed to impose the boundary conditions on flows of mass, momentum and energy for the primitive equation at the surface and lateral open boundaries of the domain.
+In <a href="#fig-interface-schematic">Figure 5.1</a> are summarized the interfaces and the external forcings acting on a typical computational domain.
+
+<div class="d-flex justify-content-center">
+   <figure id="fig-interface-schematic" class="figure text-center">
+      <a href="../assets/img/CondContorno.png">
+         <img src="../assets/img/CondContorno.png" alt="../assets/img/CondContorno.png" width="100%">
+      </a>
+      <figcaption class="figurenum">Schematized representation of the interface and external forcing acting on a typical computational domain.</figcaption>
+   </figure>
+</div>
+
+</div>
+
+<h2 id="input-datasets"><strong>Input Datasets</strong></h2>
+<div style="text-align: justify">
+
+The input model datasets are provided in the classic <a href="https://www.unidata.ucar.edu/software/netcdf/docs/netcdf_introduction.html" target="_blank">NetCDF</a>
+format for bathymetry, initial and lateral boundary condition.
+NetCDF is a widely used file format in atmospheric and oceanic research which allows storage of different types of array based data, along with a short data description.
+The coastline datasets are instead provided in <a href="https://www.esri.com/library/whitepapers/pdfs/shapefile.pdf" target="_blank">Shapefile</a> format, a digital vector data format for geographic information system (GIS) software.
+
+SURF allows also to use, if needed, two different model type of input data during the execution (i.e. analysis data for the spinup time and forecast data after).
+The user has to set-up few parameters in the configuration file <code> setParFree.json </code> in order to specify the values of path/filename, dimensions/variables
+name and characteristics of data.
+
+</div>
+
+<h3 id="bathymetry-dataset"><strong>Bathymetry Dataset</strong></h3>
+<div style="text-align: justify">
+
+The bathymetry dataset contains the sea floor elevation. This dataset is required to generate the child meshmask file. The user needs to set-up the required parameters in the sections <code>set_dataDownlBat</code> of the configuration file.
+The data are distributed on a curvilinear spherical grid (regular or not) within a region containing the nested domain.
+
+<div class="row mx-0">
+   <div class="col-6 ps-0">
+         The bathymetry file contains the elevation variable (in meters) at a certain horizontal resolution.
+         The elevation is relative to a specific reference level and can
+         increases (positive) or decreases (negative) with increasing water depth.
+         The coordinate variables (latitude/longitude) can be a one- or two-dimensional array.
+         An example of CDL text representation of this file is shown in <a href="#cdl-bathymetry">Listing 5.1</a>.
+   </div>
+   <div class="col-6 pr-0" style="font-size:16px">
+      <div id="cdl-bathymetry" class="highlight-NETCF">
+<pre><code class="mycode">netcdf bathymetry_filename {
+dimensions:
+   x = 300;
+   y = 200;
+variables: \\
+   float lon(y,x);
+      lon: units = &quot;degrees_east&quot;;
+   float lat(y,x);
+      lat: units = &quot;degrees_north&quot;;
+   float elevation(y,x);
+      elevation: units = &quot;m&quot;;
+}
+</code></pre>
+<p class="caption">Listing 5.1: Example of a netCDF file for bathymetry.</p>
+      </div>
+   </div>
+</div>
+
+<!-- <p><div class="clearer"></div></p> -->
+
+The user needs to specify the following logical parameters in section <code><span class="pre">set_dataDownlBat_fileName</span></code> of the user-configuration file:
+
+<ul class="simple">
+   <li>
+      <code class="docutils literal notranslate"><span class="pre">fileBat_lcompression</span></code> if the file to download is compressed (.gzip) or not,</li>
+   <li>
+      <code class="docutils literal notranslate"><span class="pre">fileBat_llonFlip</span></code> if the longitude coordinate is defined in the rage [0:360] or [-180:+180],
+   </li>
+   <li>
+      <code class="docutils literal notranslate"><span class="pre">fileBat_llatInv</span></code> if the dataset contains latitude decreasing through the pole,
+   </li>
+   <li>
+      <code class="docutils literal notranslate"><span class="pre">fileBat_ldepthIncr</span></code> if the dataset contains seafloor elevation (positive) increases with increasing water depth,
+   </li>
+   <li>
+      <code class="docutils literal notranslate"><span class="pre">fileBat_lkeepSrcFull</span></code> if the original downloaded file needs to be deleted after cutted in the nested domain.
+   </li>
+</ul>
+
+The available input bathymetry datasets inside the surf package is the General Bathymetric Chart of the Oceans (<a href="https://www.gebco.net/" target="_blank">GEBCO</a>), a publicly available bathymetry data sets with global coverage at 30 arc-second resolution.
+
+</div>
+
+<h3 id="coastline-dataset"><strong>Coastline Dataset</strong></h3>
+<div style="text-align: justify">
+
+The coastline dataset contains borders between land and sea areas and is stored into shapefiles.
+The coastline is required in the child meshmask generation phase.
+The user needs to set-up the required parameters in the sections <code class="docutils literal notranslate"><span class="pre">set_dataDownlCoast</span></code> of the configuration file.
+
+The available input coastline datasets inside the surf packages is the Global Self-consistent Hierarchical High-resolution Geography (<a href="https://www.ngdc.noaa.gov/mgg/shorelines/gshhs.html" target="_blank">GSHHG</a>) dataset produced by the National Oceanic and Atmospheric Association (NOAA). The datasets include 20 shapefiles which provides a consistent set of hierarchically arranged closed polygons from which the shorelines are constructed.
+The GSHHS data are split into separate shapefiles at five different resolutions:
+
+<ul class="simple">
+   <li>the highest resolution is designated '<b>f</b>' (full) with a resolution of xx m,</li>
+   <li>the next highest appears as '<b>h</b>' (high) with a resolution of xx m,</li>
+   <li>the (intermediate) '<b>i</b>' with a resolution of xx m,</li>
+   <li>the (low) '<b>l</b>' with a resolution of xx m,</li>
+   <li>the (coarse) '<b>c</b>' with a resolution of xx m.</li>
+</ul>
+For each level of resolution Shorelines are organized into four levels:
+boundary between land and ocean (<b>L1</b>), boundary between lake and land (<b>L2</b>),
+boundary between island-in-lake and lake (<b>L3</b>), and boundary between pond-in-island and island (<b>L4</b>).
+These datasets use the geographic coordinate system WGS84 (simple latitudes and longitudes; decimal degrees.
+
+</div>
+
+<h3 id="initial-condition-datasets"><strong>Initial Condition Datasets</strong></h3>
+<div style="text-align: justify">
+
+In order to start a model run, the initial values for the model prognostic variables need to be specified.
+These include temperature, salinity, sea surface height, zonal and meridional velocity components fields.
+Initial condition datasets are normally provided by coarse grid model outputs.
+The user needs to set-up the required parameters in the sections <code class="docutils literal notranslate"><span class="pre">set_dataDownlOceIC</span></code> of the configuration file.
+The data can be distributed on a curvilinear spherical grid (regular or not) with unstaggered or staggered Arakawa-C grid arrangement within a region containing the nested domain.
+The model assumes that all the input ocean variables are defined on the same grid.
+
+<div class="row mx-0">
+   <div class="col-6 ps-0">
+      <p>The coarse-resolution ocean files contain the following variables at a certain horizontal resolution.</p>
+      <ul class="simple">
+      <li><p>Potential Temperature [<span class="math">\(C\)</span>],</p></li>
+      <li><p>Salinity [<span class="math">\(PSU\)</span>],</p></li>
+      <li><p>Sea surface height [<span class="math">\(m\)</span>],</p></li>
+      <li><p>Zonal velocity [<span class="math">\(ms^{-1}\)</span>],</p></li>
+      <li><p>Meridional Velocity [<span class="math">\(ms^{-1}\)</span>].</p></li>
+      </ul>
+      <p>An example of CDL text representation of this file is shown in <a href="#cdl-oceic">Listing 5.2</a>.</p>
+   </div>
+   <div class="col-6 pr-0" style="font-size:16px">
+      <div id="cdl-oceic" class="highlight-NETCF">
+<pre><code class="mycode">netcdf fields_filename {
+dimensions:
+   x = 40 ;
+   y = 35 ;
+   z = 72 ;
+   time = UNLIMITED ; // (1 currently)
+variables:
+   float lont(y, x) ;
+      lont:units = "degrees_east" ;
+   float latt(y, x) ;
+      latt:units = "degrees_north" ;
+   float deptht(z) ;
+      deptht:units = "m" ;
+   double time(time) ;
+      time_counter:units = "seconds since
+                   1970-01-01 00:00:00" ;
+   float temperature(time, z, y, x) ;
+      temperature:units = "degC" ;
+}
+dimensions :
+x = 677;
+y = 253;
+z = 72;
+t = UNLIMITED; // (7 currently)
+variables : \\
+float lont(x);
+      lont: units = &quot;degrees_east&quot;;
+float latt(y);
+      latt: units = &quot;degrees_north&quot;;
+float deptht(z);
+      deptht: units = &quot;m&quot;;
+double time(t);
+       time: units = &quot;seconds since
+                1970-01-01 00:00:00&quot;;
+float temperature(t,z,y,x);
+      temperature: units = &quot;degC&quot;;
+}
+</code></pre>
+<p class="caption">Listing 5.2: Example of a netCDF file for the Initial Condition temperature</p>
+      </div>
+   </div>
+</div>
+
+<!-- <p><div class="clearer"></div></p> -->
+
+In order to perform the extrapolation (SOL) of ocean fields
+(see <a href="#ch2_Work-Flow-of-SURF-NEMO-platform_sec3_Input-data-regridding">section 2.3</a>),
+the parent land-sea mask file needs to be provided as input datasets.
+The user needs to set-up the required parameters in the sections <code class="docutils literal notranslate"><span class="pre">set_dataDownlOceICMesh</span></code> of the configuration file.
+
+<div class="row mx-0">
+   <div class="col-6 ps-0">
+      <p>This file contains all the information of the coarse-resolution ocean model grids and it includes the following variables:</p>
+      <ul class="simple">
+         <li><p>longitude on TUVF grid points [<span class="math">\(degree\)</span>],</p></li>
+         <li><p>latitude on TUVF grid points [<span class="math">\(degree\)</span>],</p></li>
+         <li><p>depth on TUVF grid points [<span class="math">\(m\)</span>],</p></li>
+         <li><p>land-sea mask on TUVF grid points [0-1],</p></li>
+         <li><p>scalefactor on TUVF grid points [<span class="math">\(m\)</span>],</p></li>
+         <li><p>scalefactor on TUVF grid points [<span class="math">\(m\)</span>],</p></li>
+         <li><p>scalefactor on TUVF grid points [<span class="math">\(m\)</span>].</p></li>
+      </ul>
+      <p>An example of CDL text representation of this file is shown in <a href="#cdl-oceicmask">Listing 5.3</a>.</p>
+   </div>
+   <div class="col-6 pr-0" style="font-size:16px">
+      <div id="cdl-oceicmask" class="highlight-NETCF">
+<pre><code class="mycode">netcdf meshmask_filename {
+dimensions :
+   x = 677;
+   y = 253;
+   z = 72;
+   t = UNLIMITED; // (7 currently)
+variables : \\
+   float lon(y,x);
+   float lat(y,x);
+   float lev(z);
+   double time(t);
+   byte tmask(t,z,y,x);
+   byte umask(t,z,y,x);
+   byte vmask(t,z,y,x);
+   byte fmask(t,z,y,x);
+   float glamt(t,y,x);
+   float glamu(t,y,x);
+   float glamv(t,y,x);
+   float glamf(t,y,x);
+   float gphit(t,y,x);
+   float gphiu(t,y,x);
+   float gphiv(t,y,x);
+   float gphif(t,y,x);
+   double e1t(t,y,x);
+   double e1u(t,y,x);
+   double e1v(t,y,x);
+   double e1f(t,y,x);
+   double e2t(t,y,x);
+   double e2u(t,y,x);
+   double e2v(t,y,x);
+   double e2f(t,y,x);
+   double e3t(t,z,y,x);
+   double e3u(t,z,y,x);
+   double e3v(t,z,y,x);
+   double e3w(t,z,y,x);
+}
+</code></pre>
+<p class="caption">Listing 5.3: Example of a netCDF file for the Initial Condition meshmask.</p>
+      </div>
+   </div>
+</div>
+
+</div>
+
+<h3 id="lateral-open-boundary-condition-datasets"><strong>Lateral Open Boundary Condition Datasets</strong></h3>
+<div style="text-align: justify">
+
+In order to integrate the primitive equations, the NEMO ocean model needs to impose appropriate
+boundary conditions at the ocean-ocean interface (i.e. the sides of the domain not bounded by land).
+Lateral Open Boundary values for the model prognostic variables need to be specified for all the simulation period.
+These include temperature, salinity, sea surface height, and velocity fields.
+The user needs to set-up the required parameters in the sections <code>set_dataDownlOceBC_preSpinup</code> and <code>set_dataDownlOceBC_postSpinup</code> of the configuration file.
+The data can be distributed on a curvilinear spherical grid (regular or not) with unstaggered or staggered Arakawa-C grid arrangement within a region containing the nested domain.
+The model assumes that all the input ocean variables in pre- and post- spinup period are defined on the same grid.
+
+<div class="row mx-0">
+   <div class="col-6 ps-0">
+      <p>The coarse-resolution ocean files contain the following variables at a certain
+      horizontal resolution and temporal frequency.</p>
+      <ul class="simple">
+      <li><p>Potential Temperature [<span class="math">\(C\)</span>],</p></li>
+      <li><p>Salinity [<span class="math">\(PSU\)</span>],</p></li>
+      <li><p>Sea surface height [<span class="math">\(m\)</span>],</p></li>
+      <li><p>Zonal velocity [<span class="math">\(ms^{-1}\)</span>],</p></li>
+      <li><p>Meridional Velocity [<span class="math">\(ms^{-1}\)</span>].</p></li>
+      </ul>
+      <p>An example of CDL text representation of this file is shown in <a href="#cdl-ocebc">Listing 5.4</a>.</p>
+   </div>
+   <div class="col-6 pr-0" style="font-size:16px">
+      <div id="cdl-ocebc" class="highlight-NETCF">
+
+<pre><code class="mycode">netcdf fields_filename {
+dimensions :
+   x = 677;
+   y = 253;
+   z = 72;
+   t = UNLIMITED; // (7 currently)
+variables : \\
+   float lont(x);
+         lont: units = &quot;degrees_east&quot;;
+   float latt(y);
+         latt: units = &quot;degrees_north&quot;;
+   float deptht(z);
+         deptht: units = &quot;m&quot;;
+   double time(t);
+          time: units = &quot;seconds since
+                   1970-01-01 00:00:00&quot;;
+   float temperature(t,z,y,x);
+         temperature: units = &quot;degC&quot;;
+}
+</code></pre>
+<p class="caption"> Listing 5.4: Example of a netCDF file for Open boundary Condition temperature. </p>
+      </div>
+   </div>
+</div>
+
+<!-- <p><div class="clearer"></div></p> -->
+
+<p>In order to perform the extrapolation (SOL) of ocean fields
+(see  <a href="#ch2_Work-Flow-of-SURF-NEMO-platform_sec3_Input-data-regridding">section 2.3</a>),
+the parent land-sea mask file needs to be provided as input datasets.
+The user needs to set-up the required parameters in the sections <code class="docutils literal notranslate"><span class="pre">set_dataDownlOceBCMesh</span></code> of the configuration file.</p>
+<div class="row mx-0">
+   <div class="col-6 ps-0">
+      <p>This file contains all the information of the coarse-resolution ocean model grids
+      and it includes the following variables:</p>
+      <ul class="simple">
+      <li><p>longitude on TUVF grid points [<span class="math">\(degree\)</span>],</p></li>
+      <li><p>latitude on TUVF grid points [<span class="math">\(degree\)</span>],</p></li>
+      <li><p>depth on TUVF grid points [<span class="math">\(m\)</span>],</p></li>
+      <li><p>land-sea mask on TUVF grid points [0-1],</p></li>
+      <li><p>scalefactor on TUVF grid points [<span class="math">\(m\)</span>],</p></li>
+      <li><p>scalefactor on TUVF grid points [<span class="math">\(m\)</span>],</p></li>
+      <li><p>scalefactor on TUVF grid points [<span class="math">\(m\)</span>].</p></li>
+      </ul>
+      <p>An example of CDL text representation of this file is shown in <a href="#cdl-ocebcmask">Listing 5.5</a>.</p>
+   </div>
+   <div class="col-6 pr-0" style="font-size:16px">
+      <div id="cdl-ocebcmask" class="highlight-NETCF">
+<pre><code class="mycode">netcdf meshmask_filename {
+dimensions :
+   x = 677;
+   y = 253;
+   z = 72;
+   t = UNLIMITED; // (7 currently)
+variables : \\
+   float lon(y,x);
+   float lat(y,x);
+   float lev(z);
+   double time(t);
+   byte tmask(t,z,y,x);
+   byte umask(t,z,y,x);
+   byte vmask(t,z,y,x);
+   byte fmask(t,z,y,x);
+   float glamt(t,y,x);
+   float glamu(t,y,x);
+   float glamv(t,y,x);
+   float glamf(t,y,x);
+   float gphit(t,y,x);
+   float gphiu(t,y,x);
+   float gphiv(t,y,x);
+   float gphif(t,y,x);
+   double e1t(t,y,x);
+   double e1u(t,y,x);
+   double e1v(t,y,x);
+   double e1f(t,y,x);
+   double e2t(t,y,x);
+   double e2u(t,y,x);
+   double e2v(t,y,x);
+   double e2f(t,y,x);
+   double e3t(t,z,y,x);
+   double e3u(t,z,y,x);
+   double e3v(t,z,y,x);
+   double e3w(t,z,y,x);
+}
+</code></pre>
+<p class="caption"> Listing 5.5: Example of a netCDF file for the Initial Condition meshmask. </p>
+      </div>
+   </div>
+</div>
+
+</div>
+
+<h3 id="tidal-datasets-for-the-open-boundaries"><strong>Tidal Datasets for the open boundaries</strong></h3>
+<div style="text-align: justify">
+
+For the barotropic solution, there is also the option to use tidal harmonic forcing at open boundaries in addition to other external data.
+These include the constituents for amplitude and phase of surface height and velocity.
+The user needs to set-up the required parameters in the sections <code>set_dataDownlTide</code> of the configuration file.
+The data are distributed on a regular curvilinear spherical grid with unstaggered or staggered Arakawa-C grid arrangement within a region containing the nested domain.
+The model assumes that all the input tidal harmonic variables are defined on the same grid.
+
+<div class="row mx-0">
+   <div class="col-6 ps-0">
+      <p>The barotropic tide files contain for each harmonic constituents the following variables at a certain
+      horizontal resolution.</p>
+      <ul class="simple">
+      <li><p>Tidal elevation complex amplitude, Real and Imaginary part [<span class="math">\(mm\)</span>],</p></li>
+      <li><p>Tidal WE transport complex amplitude, Real and Imaginary part [<span class="math">\(cm^2/s\)</span>],</p></li>
+      <li><p>Tidal SN transport complex amplitude, Real and Imaginary part [<span class="math">\(cm^2/s\)</span>],</p></li>
+      </ul>
+      <p>An example of CDL text representation of this file is shown in <a href="#cdl-ocebc">Listing 5.6</a>.</p>
+   </div>
+   <div class="col-6 pr-0" style="font-size:16px">
+      <div id="cdl-ocebc" class="highlight-NETCF">
+<pre><code class="mycode">netcdf uv.k1_tpxo8_atlas_30c_v1 {
+dimensions:
+   nx = 10800 ;
+   ny = 5401 ;
+variables:
+   double lon_u(nx) ;
+      lon_u:units = "degree_east" ;
+   double lat_u(ny) ;
+      lat_u:units = "degree_north" ;
+   double lon_v(nx) ;
+      lon_v:units = "degree_east" ;
+   double lat_v(ny) ;
+      lat_v:units = "degree_north" ;
+   int uRe(nx, ny) ;
+      uRe:units = "centimeter^2/sec" ;
+   int uIm(nx, ny) ;
+      uIm:units = "centimeter^2/sec" ;
+   int vRe(nx, ny) ;
+      vRe:units = "centimeter^2/sec" ;
+   int vIm(nx, ny) ;
+      vIm:units = "centimeter^2/sec" ;
+}
+</code></pre>
+<p class="caption"> Listing 5.6: Example of a netCDF file for the Zonal and meridional Tidal transport for the constituent K1. </p>
+      </div>
+   </div>
+</div>
+
+<!-- <p><div class="clearer"></div></p> -->
+
+<p>The tidal model bathymetry file needs to be provided as input datasets.
+The user needs to set-up the required parameters in the sections
+<code class="docutils literal notranslate"><span class="pre">set_dataDownlTideMesh</span></code> of the configuration file.</p>
+<div class="row mx-0">
+   <div class="col-6 ps-0">
+      <p>This file contains all the information of the tidal model grids and depth grid
+      and it includes the following variables:</p>
+      <ul class="simple">
+      <li><p>longitude on TUV grid points [<span class="math">\(degree\)</span>],</p></li>
+      <li><p>latitude on TUV grid points [<span class="math">\(degree\)</span>],</p></li>
+      <li><p>Bathymetry at TUV grid points [<span class="math">\(m\)</span>].</p></li>
+      </ul>
+      <p>An example of CDL text representation of this file is shown in <a href="#cdl-ocebcmask">Listing 5.7</a>.</p>
+   </div>
+   <div class="col-6 pr-0" style="font-size:16px">
+      <div id="cdl-ocebcmask" class="highlight-NETCF">
+<pre><code class="mycode">netcdf grid_tpxo8atlas_30_v1 {
+dimensions:
+   nx = 10800 ;
+   ny = 5401 ;
+variables:
+   double lon_z(nx) ;
+      lon_z:units = "degree_east" ;
+   double lat_z(ny) ;
+      lat_z:units = "degree_north" ;
+   double lon_u(nx) ;
+      lon_u:units = "degree_east" ;
+   double lat_u(ny) ;
+      lat_u:units = "degree_north" ;
+   double lon_v(nx) ;
+      lon_v:units = "degree_east" ;
+   double lat_v(ny) ;
+      lat_v:units = "degree_north" ;
+   float hz(nx, ny) ;
+      hz:units = "meter" ;
+   float hu(nx, ny) ;
+      hu:units = "meter" ;
+   float hv(nx, ny) ;
+      hv:units = "meter" ;
+}
+</code></pre>
+<p class="caption"> Listing 5.7: Example of a netCDF file for the Initial Condition meshmask. </p>
+      </div>
+   </div>
+</div>
+
+<!-- <p><div class="clearer"></div></p> -->
+
+The available input barotropic tide datasets inside the surf packages are derived from the Topex Poseidon cross-over (<a href="https://www.tpxo.net/global/tpxo8-atlas" target="_blank">TPX08-ATLAS</a>) global inverse tide model obtained with
+the software package OTIS (OSU Tidal Inversion Software) implementing methods described in Egbert and Erofeeva, 2002.
+The TPX08 tidal model consists of a multi-resolution bathymetric grid solution,
+with a 1/6 solution in the global open ocean, and a 1/30 local resolution solution to improve modelling in complex shallow-water environments.
+It includes complex amplitudes of the tide sea-surface elevations and transports for eight primaries (M2, S2, N2, K2, K1, O1, P1, Q1),
+two long-period (Mf, Mm) and 3 non-linear (M4, MS4, MN4) harmonic constituents.
+
+</div>
+
+<h3 id="atmospheric-forcing-datasets"><strong>Atmospheric Forcing Datasets</strong></h3>
+<div style="text-align: justify">
+
+In order to integrate the primitive equations, the NEMO ocean model needs to impose appropriate boundary
+conditions on flows of mass, momentum and energy at the atmosphere-ocean interface. It must be provided
+on the integration domain the following six fields:
+
+<ol>
+   <li><p>the zonal components of the surface ocean stress,</p></li>
+   <li><p>the meridional components of the surface ocean stress,</p></li>
+   <li><p>the heat fluxes from solar Qsr,</p></li>
+   <li><p>the heat fluxes from non-solar Qns radiation,</p></li>
+   <li><p>the water flows exchanged with the atmosphere (E-P) (the evaporation minus precipitation budget).</p></li>
+</ol>
+<p>In addition an optional field:</p>
+<ol start="7">
+   <li><p>the atmospheric pressure at the ocean surface (pa).</p></li>
+</ol>
+<p>The NEMO ocean model provides different ways to provide the first six fields to the ocean which are controlled
+by namelist variables (see NEMO Manual).
+The choice of the atmospheric forcing formulation in SURF platform is obtained by setting the parameter
+<code>sbc_iformulat</code> in the user configuration file:</p>
+<ul>
+   <li><p><code>sbc_iformulat=0</code> for the MFS bulk formulae,</p></li>
+   <li><p><code>sbc_iformulat=1</code> for the the Flux formulation,</p></li>
+   <li><p><code>sbc_iformulat=2</code> for the CORE bulk formula.</p></li>
+</ul>
+<p>The data are distributed on a regular unstaggered grid within a region containing the nested domain.
+The model assumes that input atmospheric variables in pre- and post- spinup period are defined on the same
+mesh but allowed different mesh for different variables.
+The user needs to set-up the required parameters in the sections <code>set_dataDownlAtm_preSpinup</code> and <code>set_dataDownlAtm_postSpinup</code> of the configuration file.</p>
+
+<div class="subsubsection" id="atmospheric-forcing-dataset-for-the-mfs-bulk-formulae">
+   <p>(1) The choice of <b>MFS bulk formulae</b> is obtained by setting the parameter <code>sbc_iformulat=0</code> in the user configuration file.</p>
+   <div class="row mx-0">
+      <div class="col-6 ps-0">
+         <p>The atmospheric forcing files contain the following variables at a certain horizontal resolution and
+         temporal frequency:</p>
+         <ul class="simple">
+            <li><p class="my-2">10 m zonal wind component [<span class="math">\(ms^{-1}\)</span>],</p></li>
+            <li><p class="my-2">10 m meridional wind component [<span class="math">\(ms^{-1}\)</span>],</p></li>
+            <li><p class="my-2">2m Air Temperature [<span class="math">\(K\)</span>],</p></li>
+            <li><p class="my-2">2m Dew Point Temperature [<span class="math">\(K\)</span>],</p></li>
+            <li><p class="my-2">Mean Sea Level Pressure [<span class="math">\(Pa\)</span>],</p></li>
+            <li><p class="my-2">Total Cloud Cover [%].</p></li>
+            <li><p class="my-2">Total Precipitation [<span class="math">\( m \)</span>].</p></li>
+         </ul>
+         <p>An example of CDL text representation for the atmospheric forcing file
+         with temporal frequency of 3 hours is shown in box in <a href="#cdl-atm-mfs">Listing 5.8</a>.</p>
+      </div>
+      <div class="col-6 pr-0" style="font-size:16px">
+         <div id="cdl-atm-mfs" class="highlight-NETCF">
+<pre><code class="mycode">netcdf atmFields_filename {
+dimensions :
+   lon = 245;
+   lat = 73;
+   time = UNLIMITED; // (8 currently)
+variables : \\
+   float lon(lon);
+         lon: units = &quot;degrees_east&quot;;
+   float lat(lat);
+         lat: units = &quot;degrees_north&quot;;
+   float time(time);
+         time: units = &quot;seconds since
+                  1970-01-01 00:00:00&quot;;
+   float T2M(time,lat,lon);
+         T2M: units = &quot;K&quot;;
+}
+</code></pre>
+<p class="caption"> Listing 5.8: Example of a netCDF file for the Atmospheric Forcing temperature. </p>
+         </div>
+      </div>
+   </div>
+</div>
+
+<div class="subsubsection" id="atmospheric-forcing-dataset-for-the-core-bulk-formulae">
+   <p>(2) The choice of <b>Core bulk formulae</b> is obtained by setting the parameter <code>sbc_iformulat=2</code> in the user configuration file.</p>
+   <div class="row mx-0">
+      <div class="col-6 ps-0">
+         <p>The atmospheric forcing files contain the following variables at a certain horizontal resolution
+         and temporal frequency:</p>
+         <ul class="simple">
+            <li><p class="my-2">10 m zonal wind component [<span class="math">\(ms^{-1}\)</span>],</p></li>
+            <li><p class="my-2">10 m meridional wind component [<span class="math">\(ms^{-1}\)</span>],</p></li>
+            <li><p class="my-2">2m Temperature [<span class="math">\(K\)</span>],</p></li>
+            <li><p class="my-2">2m Specific humidity [<span class="math">\(\%\)</span>],</p></li>
+            <li><p class="my-2">Incoming long-wave radiation [<span class="math">\(W m^{-2}\)</span>],</p></li>
+            <li><p class="my-2">Incoming short-wave radiation [<span class="math">\(W m^{-2}\)</span>],</p></li>
+            <li><p class="my-2">Total precipitation (liquid+solid) [<span class="math">\(Kg m^{-2} s^{-1}\)</span>],</p></li>
+            <li><p class="my-2">Solid precipitation [<span class="math">\(Kg m^{-2} s^{-1}\)</span>].</p></li>
+         </ul>
+         <p>An example of CDL text representation for the atmospheric forcing file
+         with temporal frequency of 3 hours is shown in box in <a href="#cdl-atm-core">Listing 5.9</a>.</p>
+      </div>
+      <div class="col-6 pr-0" style="font-size:16px">
+         <div id="cdl-atm-core" class="highlight-NETCF">
+<pre><code class="mycode">netcdf atmFields_filename {
+dimensions :
+   lon = 245;
+   lat = 73;
+   time = UNLIMITED; // (8 currently)
+variables : \\
+   float lon(lon);
+         lon: units = &quot;degrees_east&quot;;
+   float lat(lat);
+         lat: units = &quot;degrees_north&quot;;
+   float time(time);
+         time: units = &quot;seconds since
+                  1970-01-01 00:00:00&quot;;
+   float T2M(time,lat,lon);
+         T2M: units = &quot;K&quot;;
+}
+</code></pre>
+<p class="caption"> Listing 5.9: Example of a netCDF file for the Atmospheric Forcing temperature. </p>
+         </div>
+      </div>
+   </div>
+</div>
+
+<div class="subsubsection" id="atmospheric-forcing-dataset-for-the-flux-formulation">
+   <p>(3) The choice of <b>Flux formulation</b> is obtained by setting the parameter <code>sbc_iformulat=1</code> in the user configuration file.</p>
+   <div class="row mx-0">
+      <div class="col-6 ps-0">
+         <p>The atmospheric forcing files contain the following
+         variables at a certain horizontal resolution and
+         temporal frequency:</p>
+         <ul class="simple">
+            <li><p class="my-2">Zonal wind stress [0 - 1],</p></li>
+            <li><p class="my-2">Meridional Wind stress [0 - 1],</p></li>
+            <li><p class="my-2">Total heat flux [0 - 1],</p></li>
+            <li><p class="my-2">Solar Radiation Penetration [0 - 1],</p></li>
+            <li><p class="my-2">Mass flux exchanged [0 - 1],</p></li>
+            <li><p class="my-2">Surface Temperature [0 - 1],</p></li>
+            <li><p class="my-2">Surface Salinity [0 - 1].</p></li>
+         </ul>
+         <p>An example of CDL text representation for the atmospheric forcing file
+         with temporal frequency of 3 hours is shown in box in <a href="#cdl-atm-flux">Listing 5.10</a>.</p>
+      </div>
+      <div class="col-6 pr-0" style="font-size:16px">
+         <div id="cdl-atm-flux" class="highlight-NETCF">
+<pre><code class="mycode">netcdf atmFields_filename {
+dimensions :
+   lon = 245;
+   lat = 73;
+   time = UNLIMITED; // (8 currently)
+variables : \\
+   float lon(lon);
+         lon: units = &quot;degrees_east&quot;;
+   float lat(lat);
+         lat: units = &quot;degrees_north&quot;;
+   float time(time);
+         time: units = &quot;seconds since
+                  1970-01-01 00:00:00&quot;;
+   float T2M(time,lat,lon);
+         T2M: units = &quot;K&quot;;
+}
+</code></pre>
+<p class="caption"> Listing 5.10: Example of a netCDF file for the Atmospheric Forcing temperature. </p>
+         </div>
+      </div>
+   </div>
+</div>
+
+<p>In order to perform the extrapolation (SOL) of atmospheric fields
+(see  <a href="#ch2_Work-Flow-of-SURF-NEMO-platform_sec3_Input-data-regridding">section 2.3</a>),
+the atmospheric meshmask file needs to be provided as input datasets.
+The user needs to set-up the required parameters in the sections <code>set_dataDownlAtmMesh</code> of the configuration file.</p>
+<div class="row mx-0">
+   <div class="col-6 ps-0">
+      <p>The atmospheric meshmask file contains the land-sea mask [0-1] variable.</p>
+      <p>An example of CDL text representation of the atmospheric land-sea mask is shown in <a href="#cdl-atm-flux-mask">Listing 5.11</span></a>.
+      The time dimension and coordinate variable can also be omitted.</p>
+   </div>
+   <div class="col-6 pr-0" style="font-size:16px">
+      <div id="cdl-atm-flux-mask" class="highlight-NETCF">
+
+<!-- <figure id="cdl-atm-flux-mask"> -->
+<pre><code class="mycode">netcdf meshmask_filename {
+dimensions :
+   lon = 245;
+   lat = 73;
+   time = UNLIMITED; // (1 currently)
+variables : \\
+   float lon(lon);
+         lon: units = &quot;degrees_east&quot;;
+   float lat(lat);
+         lat: units = &quot;degrees_north&quot;;
+   float time(time);
+         time: units = &quot;seconds since
+                  1970-01-01 00:00:00&quot;;
+   float LSM(time,lat,lon);
+         LSM: units = &quot;0-1&quot;;
+}
+</code></pre>
+<p class="caption"> Listing 5.11: Example of a netCDF file for the Atmospheric Forcing meshmask. </p>
+      </div>
+   </div>
+</div>
+
+</div>
+
+<h2 id="output-datasets"><strong>Output Datasets</strong></h2>
+<p>The output model datasets are provided in the NetCDF format ..
+the meshmask file, the output files for T, U ,V, W grids and the restart file.</p>
+<h3 id="meshmask-dataset"><strong>Meshmask dataset</strong></h3>
+<div class="row mx-0">
+   <div class="col-6 ps-0">
+      This file contains all the information of the child ocean model grids
+      and it includes the following variables:
+      <ul class="simple">
+      <li>longitude on TUVF grid points [<span class="math">\(degree\)</span>],</li>
+      <li>latitude on TUVF grid points [<span class="math">\(degree\)</span>],</li>
+      <li>depth on TUVF grid points [<span class="math">\(m\)</span>],</li>
+      <li>land-sea mask on TUVF grid points [0-1],</li>
+      <li>scalefactor on TUVF grid points [<span class="math">\(m\)</span>],</li>
+      <li>scalefactor on TUVF grid points [<span class="math">\(m\)</span>],</li>
+      <li>scalefactor on TUVF grid points [<span class="math">\(m\)</span>].</li>
+      </ul>
+      An example of CDL text representation of this file is shown in <a href="#cdl-oceoutmask">Listing 5.21</a>.
+   </div>
+   <div class="col-6 pr-0" style="font-size:16px">
+      <div id="cdl-oceoutmask" class="highlight-NETCF">
+<pre><code class="mycode">netcdf meshmask_filename {
+dimensions :
+   x = 677;
+   y = 253;
+   z = 72;
+   t = UNLIMITED; // (7 currently)
+variables : \\
+   float lon(y,x);
+   float lat(y,x);
+   float lev(z);
+   double time(t);
+   byte tmask(t,z,y,x);
+   byte umask(t,z,y,x);
+   byte vmask(t,z,y,x);
+   byte fmask(t,z,y,x);
+   float glamt(t,y,x);
+   float glamu(t,y,x);
+   float glamv(t,y,x);
+   float glamf(t,y,x);
+   float gphit(t,y,x);
+   float gphiu(t,y,x);
+   float gphiv(t,y,x);
+   float gphif(t,y,x);
+   double e1t(t,y,x);
+   double e1u(t,y,x);
+   double e1v(t,y,x);
+   double e1f(t,y,x);
+   double e2t(t,y,x);
+   double e2u(t,y,x);
+   double e2v(t,y,x);
+   double e2f(t,y,x);
+   double e3t(t,z,y,x);
+   double e3u(t,z,y,x);
+   double e3v(t,z,y,x);
+   double e3w(t,z,y,x);
+}
+</code></pre>
+<p class="caption">Listing 5.21: CDL example for the meshmask datasets.</p>
+      </div>
+   </div>
+</div>
+
+<h3 id="ocean-output-datasets"><strong>Ocean Output Datasets</strong></h3>
+<p>…contains:</p>
+
+<p>(1) This output file SURF_1h_YYYYMMDD0_YYYYMMDD1_grid_T contains hourly fields defined on the Arakawa-T grid within the chid nested domain.</p>
+<div class="row mx-0">
+   <div class="col-6 ps-0">
+      <p> This file contains the following variables:</p>
+      <ul class="simple">
+         <li>Temperature [<span class="math">\(C\)</span>],</li>
+         <li>Salinity [<span class="math">\(PSU\)</span>],</li>
+         <li>Sea Surface temperature [<span class="math">\(C\)</span>],</li>
+         <li>Sea Surface salinity [<span class="math">\(PSU\)</span>],</li>
+         <li>Sea Surface Height [<span class="math">\(m\)</span>],</li>
+         <li>Net Upward Water Flux [<span class="math">\(Kg=m2=s\)</span>],</li>
+         <li>concentration/dilution water flux [<span class="math">\(Kg=m2=s\)</span>],</li>
+         <li>Surface Salt Flux [<span class="math">\(Kg=m2=s\)</span>],</li>
+         <li>Net Downward Heat Flux [<span class="math">\(W=m2\)</span>],</li>
+         <li>Shortwave Radiation [<span class="math">\(W=m2\)</span>],</li>
+         <li>Turbocline Depth [<span class="math">\(m\)</span>],</li>
+         <li>Mixed Layer Depth 0.01 [<span class="math">\(W=m2\)</span>],</li>
+         <li>Ice fraction [<span class="math">\(0;1\)</span>],</li>
+         <li>wind speed at 10m [<span class="math">\(m=s\)</span>],</li>
+         <li>Surface Heat Flux: Damping [<span class="math">\(W=m2\)</span>],</li>
+         <li>Surface Water Flux: Damping [<span class="math">\(Kg=m2=s\)</span>],</li>
+         <li>Surface salt flux: damping [<span class="math">\(Kg=m2=s\)</span>],</li>
+         <li>Bowl Index[<span class="math">\(W point\)</span>].</li>
+      </ul>
+      <p>An example of CDL text representation of this file is shown in <a href="#cdl-outT">Listing 5.22</a>.</p>
+   </div>
+   <div class="col-6 pr-0" style="font-size:16px">
+      <div id="cdl-outT" class="highlight-NETCF">
+<pre><code class="mycode">netcdf fields_filename {
+dimensions :
+   lon = 677;
+   lat = 253;
+   depth = 72;
+   time = UNLIMITED; // (7 currently )
+variables : \\
+   float lont (x);
+         lont : units = &quot; degrees_east &quot;;
+   float latt (y);
+         latt : units = &quot; degrees_north &quot;;
+   float deptht (z);
+         deptht : units = &quot;m&quot;;
+   double time (t);
+         time : units = &quot; seconds since
+                   1970-01-01 00:00:00&quot;;
+   float temperature (t, z, y, x);
+         temperature : units = &quot; degC &quot;;
+}
+</code></pre>
+<p class="caption">Listing 5.22: CDL example for the bdyV_u3d data.</p>
+      </div>
+   </div>
+</div>
+
+<!-- <p><div class="clearer"></div></p> -->
+
+<p>(2) This output file SURF_1h_YYYYMMDD0_YYYYMMDD1_grid_U contains hourly fields defined on the Arakawa-U grid within the chid nested domain.</p>
+<div class="row mx-0">
+   <div class="col-6 ps-0">
+      <p> This file contains the following variables: </p>
+      <ul class="simple">
+         <li><p>Zonal Current [<span class="math">\(m/s\)</span>],</p></li>
+         <li><p>Wind Stress along zonal-axis [<span class="math">\(N/m^2\)</span>],</p></li>
+      </ul>
+      <p>An example of CDL text representation of this file is shown in <a href="#cdl-outU">Listing 5.23</a>.</p>
+   </div>
+   <div class="col-6 pr-0" style="font-size:16px">
+      <div id="cdl-outU" class="highlight-NETCF">
+<pre><code class="mycode">netcdf fields_filename {
+dimensions :
+   lon = 677;
+   lat = 253;
+   depth = 72;
+   time = UNLIMITED; // (7 currently )
+variables : \\
+   float lont (x);
+         lont : units = &quot; degrees_east &quot;;
+   float latt (y);
+         latt : units = &quot; degrees_north &quot;;
+   float deptht (z);
+         deptht : units = &quot;m&quot;;
+   double time (t);
+         time : units = &quot; seconds since
+                   1970-01-01 00:00:00&quot;;
+   float temperature (t, z, y, x);
+         temperature : units = &quot; degC &quot;;
+}
+</code></pre>
+<p class="caption">Listing 5.23: CDL example for the bdyV_u3d data.</p>
+      </div>
+   </div>
+</div>
+
+<!-- <p><div class="clearer"></div></p> -->
+
+<p>(3) This output file SURF_1h_YYYYMMDD0_YYYYMMDD1_grid_V contains hourly fields defined on the Arakawa-V grid within the chid nested domain.</p>
+<div class="row mx-0">
+   <div class="col-6 ps-0">
+      <p> This file contains the following variables: </p>
+      <ul class="simple">
+         <li><p>Meridional Current [<span class="math">\(m/s\)</span>],</p></li>
+         <li><p>Wind Stress along meridional-axis [<span class="math">\(N/m^2\)</span>],</p></li>
+      </ul>
+      <p>An example of CDL text representation of this file is shown in <a href="#cdl-outU">Listing 5.23</a>.</p>
+   </div>
+   <div class="col-6 pr-0" style="font-size:16px">
+      <div id="cdl-outV" class="highlight-NETCF">
+<pre><code class="mycode">netcdf fields_filename {
+dimensions :
+   lon = 677;
+   lat = 253;
+   depth = 72;
+   time = UNLIMITED; // (7 currently)
+variables : \\
+   float lont(x);
+         lont: units = &quot;degrees_east&quot;;
+   float latt(y);
+         latt: units = &quot;degrees_north&quot;;
+   float deptht(z);
+         deptht: units = &quot;m&quot;;
+   double time(t);
+         time: units = &quot;seconds since
+                  1970-01-01 00:00:00&quot;;
+   float temperature(t,z,y,x);
+         temperature: units = &quot;degC&quot;;
+}
+</code></pre>
+<figcaption>Listing 5.24: CDL example for the bdyV_u3d data.</figcaption>
+</figure>
+         </div>
+      </div>
+   </div>
+
+<!-- <p><div class="clearer"></div></p> -->
+
+<p>(4) This output file SURF_1h_YYYYMMDD0_YYYYMMDD1_grid_W contains hourly fields defined on the Arakawa-W grid within the chid nested domain.</p>
+<div class="row mx-0">
+      <div class="col-6 ps-0">
+         <p> This file contains the following variables: </p>
+         <ul class="simple">
+            <li><p>Vertical velocity [<span class="math">\(m/s\)</span>],</p></li>
+            <li><p>Vertical Eddy Viscosity [<span class="math">\(m^2/s\)</span>],</p></li>
+            <li><p>Vertical Eddy Diffusivity [<span class="math">\(m^2/s\)</span>].</p></li>
+         </ul>
+         <p>An example of CDL text representation of this file is shown in <a href="#cdl-outU">Listing 5.23</a>.</p>
+      </div>
+      <div class="col-6 pr-0" style="font-size:16px">
+         <div id="cdl-outV" class="highlight-NETCF">
+<pre><code class="mycode">netcdf fields_filename {
+dimensions :
+   lon = 677;
+   lat = 253;
+   depth = 72;
+   time = UNLIMITED; // (7 currently)
+variables : \\
+   float lont(x);
+         lont: units = &quot;degrees_east&quot;;
+   float latt(y);
+         latt: units = &quot;degrees_north&quot;;
+   float deptht(z);
+         deptht: units = &quot;m&quot;;
+   double time(t);
+         time: units = &quot;seconds since
+                  1970-01-01 00:00:00&quot;;
+   float temperature(t,z,y,x);
+         temperature: units = &quot;degC&quot;;
+}
+</code></pre>
+<figcaption>Listing 5.24: CDL example for the bdyV_u3d data.</figcaption>
+</figure>
+         </div>
+      </div>
+   </div>
+
+<!-- <p><div class="clearer"></div></p> -->
+
+<h3 id="restart-dataset"><strong>Restart dataset</strong></h3>
+<p>The restart file can be used as initial conditions for research ...</p>
+<div class="row mx-0">
+   <div class="col-6 ps-0">
+      <p>This file contains all the information of the child ocean model grids
+      and it includes the following variables:</p>
+      <ul class="simple">
+      <li><p>longitude on TUVF grid points [<span class="math">\(degree\)</span>],</p></li>
+      <li><p>latitude on TUVF grid points [<span class="math">\(degree\)</span>],</p></li>
+      <li><p>depth on TUVF grid points [<span class="math">\(m\)</span>],</p></li>
+      </ul>
+      <p>An example of CDL text representation of this file is shown in <a href="#cdl-oceoutmask">Listing 5.21</a>.</p>
+   </div>
+   <div class="col-6 pr-0" style="font-size:16px">
+      <div id="cdl-oceoutmask" class="highlight-NETCF">
+<pre><code class="mycode">netcdf SURF_restart_20141005 {
+dimensions:
+x = 94 ;
+y = 79 ;
+z = 120 ;
+t = UNLIMITED ; // (1 currently)
+variables:
+float nav_lon(y, x) ;
+float nav_lat(y, x) ;
+float nav_lev(z) ;
+double time_counter(t) ;
+double kt ;
+double ndastp ;
+double adatrj ;
+double utau_b(t, y, x) ;
+double vtau_b(t, y, x) ;
+double qns_b(t, y, x) ;
+double emp_b(t, y, x) ;
+double sfx_b(t, y, x) ;
+double sbc_hc_b(t, y, x) ;
+double sbc_sc_b(t, y, x) ;
+double qsr_hc_b(t, z, y, x) ;
+double fraqsr_1lev(t, y, x) ;
+double rdt ;
+double rdttra1 ;
+double ub(t, z, y, x) ;
+double vb(t, z, y, x) ;
+double tb(t, z, y, x) ;
+double sb(t, z, y, x) ;
+double rotb(t, z, y, x) ;
+double hdivb(t, z, y, x) ;
+double sshb(t, y, x) ;
+double un(t, z, y, x) ;
+double vn(t, z, y, x) ;
+double tn(t, z, y, x) ;
+double sn(t, z, y, x) ;
+double rotn(t, z, y, x) ;
+double hdivn(t, z, y, x) ;
+double sshn(t, y, x) ;
+double rhop(t, z, y, x) ;
+}
+</code></pre>
+<p class="caption">Listing 5.21: CDL example for the restart datasets.</p>
+      </div>
+   </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2020 - 2024 <a href="https://github.com/FranzTr/test_doc"  target="_blank" rel="noopener">SURF Team</a>
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "search.suggest", "search.highlight", "search.share", "content.tabs.link", "content.code.annotation", "content.code.copy", "content.action.view"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.caa56a14.min.js"></script>
+      
+        <script src="../assets/js/extra.js"></script>
+      
+    
+  </body>
+</html>
